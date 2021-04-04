@@ -1,5 +1,7 @@
-let loginControllers = (req, res) => {
-        res.send('Login page');
+let loginControllers = {
+        index:(req, res) =>{    
+                res.send('Login page');
+        }
 };
 
 module.exports = loginControllers;

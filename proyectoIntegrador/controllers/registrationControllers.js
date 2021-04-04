@@ -1,5 +1,7 @@
-let registrationControllers = (req, res) => {
-        res.send('Registration page');
+let registrationControllers =  {
+        index:(req, res) =>{    
+                res.send('Registration page');
+        }
 };
 
 module.exports = registrationControllers;
