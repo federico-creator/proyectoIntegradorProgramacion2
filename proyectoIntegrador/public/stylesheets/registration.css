@@ -1,0 +1,54 @@
+#registration-page {
+    color: black;
+    margin-left: 15px;
+    padding-left: 6%;
+}
+
+h1#registration-page{
+    font-size: 30px;
+    margin-top: 2%;
+}
+
+h2#registration-page{
+    font-size: 18px;
+    margin-bottom: 2%;
+}
+
+a.link-registration{
+    text-decoration: underline;
+}
+
+#registration-form {
+    padding-left: 8%;
+}
+
+div.form-group {
+    padding: 10px;
+    border-color: blue;
+}
+
+.form-control {
+    background-color: white;
+    width: 270px;
+    height: 52px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 0px;
+    font-size: 18px;
+}
+
+#exampleInputEmail {
+    width: 540px;
+}
+
+#submit-button {
+    background-color: black;
+    border: 0px;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 18px;
+}
+
+
+
+

@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs")%>
+
+<h1 id="registration-page">Registro de usuario</h1>
+<h2 id="registration-page">¿Ya estás registrado? <a class="link-registration" href="/login">Ingresá aquí</a></h2>
+
+
+<form id="registration-form">
+    <div class="form-group">
+        <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="Nombre">
+        <input type="apellido" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp" placeholder="Apellido">
+    </div>
+
+    <div class="form-group">
+        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Repetir contraseña">
+    </div>
+
+    <button type="submit" id="submit-button" class="btn btn-primary">Confirmar</button>
+</form>
+
+
+<%- include("partials/footer.ejs")%>
