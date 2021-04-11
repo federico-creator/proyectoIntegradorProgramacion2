@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs")%>
+
+<%for(let i=0;i<products.length;i+=1){%>
+    <h1>Usted esta viendo las caracteristicas del auto <%=products[i].marca%> <%=products[i].modelo%></h1>
+    <ul>
+        <li><p>marca: <%=products[i].marca%></p></li>
+        <li><p>modelo: <%=products[i].modelo%></p></li>
+        <li><p>año: <%=products[i].año%></p></li>
+        <li><p>color: <%=products[i].color%></p></li>
+        <img src="<%=products[i].foto%>" alt="<%=products[i].foto%>">
+    </ul>
+<%}%> 
+
+
+<%- include("partials/footer.ejs")%>
