@@ -1,6 +1,7 @@
 let loginControllers = {
         index:(req, res) =>{    
-                res.send('Login page');
+                res.render('login.ejs');
+                
         }
 };
 
