@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color:rgb(138, 98, 231);
+}
+
+.imagenproductos{
+  height: 150px;
+}
+
+.titulos{
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+  font-style: oblique;
 }

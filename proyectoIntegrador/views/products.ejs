@@ -1,15 +1,43 @@
 <%- include("partials/header.ejs")%>
-
-<%for(let i=0;i<products.length;i+=1){%>
-    <h1>Usted esta viendo las caracteristicas del auto <%=products[i].marca%> <%=products[i].modelo%></h1>
-    <ul>
-        <li><p>marca: <%=products[i].marca%></p></li>
-        <li><p>modelo: <%=products[i].modelo%></p></li>
-        <li><p>año: <%=products[i].año%></p></li>
-        <li><p>color: <%=products[i].color%></p></li>
-        <img src="<%=products[i].foto%>" alt="<%=products[i].foto%>">
-    </ul>
-<%}%> 
+<%for(let i=0;i<products.length;i+=1){%> 
+<div class="container products-wrapper">
+    <div class="d-flex align-items-center">
+        <h2 class="titulos"><%=products[i].marca%> <%=products[i].modelo%></h2> 
+        <p class="product-detail-description">
+            <a href="../agregar">Editar</a>
+        </p>
+    </div>
+    <div class="product-detail">
+        <div class="row">
+            <article class="col-12 col-lg-8 product-detail-info">
+                <img src="<%=products[i].foto%>" alt="<%=products[i].foto%>">
+                <p class="product-detail-description">
+                    <%=products[i].descripcionlarga%>
+                </p>
+            </article>
+            <div class="col-12 col-lg-4">
+                <section class="comments">
+                    <%for(let i=0;i<4;i+=1){%> 
+                    <article>
+                        <img src="https://via.placeholder.com/35" alt="">
+                        <div class="data">
+                            <p class="user">
+                            <strong> <a href="profile.html">Nombre usuario: </a> </strong>
+                             praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
+                        </div>
+                    </article>
+                    <%}%>
+                </section>
+                <form class="form" action="" method="POST">
+                    <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+                    <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+<%}%>
 
 
 <%- include("partials/footer.ejs")%>

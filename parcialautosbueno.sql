@@ -102,3 +102,45 @@ delete from comentarios where id=5;
 insert into productos_usuarios values (default,5,7);
 select * from productos_usuarios;
 
+drop table productos_usuarios;
+
+alter table productos
+add usuario_cargo_id int unsigned;
+
+alter table productos 
+add foreign key (usuario_cargo_id) references usuarios (id);
+
+update productos
+set usuario_cargo_id=1
+where id=1;
+
+update productos
+set usuario_cargo_id=1
+where id=2;
+
+update productos
+set usuario_cargo_id=2
+where id=3;
+
+update productos
+set usuario_cargo_id=3
+where id=4;
+
+update productos
+set usuario_cargo_id=3
+where id=5;
+
+update productos
+set usuario_cargo_id=3
+where id=6;
+
+update productos
+set usuario_cargo_id=6
+where id=7;
+
+update productos
+set usuario_cargo_id=6
+where id=8;
+
+
+
