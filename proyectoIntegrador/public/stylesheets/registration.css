@@ -54,6 +54,11 @@ div.form-group {
     text-decoration: none;
 }
 
+/*LOGIN CSS*/
 
+#login-form{
+    padding-left: 8%;
+    margin-top: 50px
+}
 
 

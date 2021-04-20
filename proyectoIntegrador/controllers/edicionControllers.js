@@ -1,6 +1,6 @@
 let edicionControllers = {
         index:(req, res) =>{    
-                res.send('Editar perfil');
+                res.render('edicion');
         }
 };
 

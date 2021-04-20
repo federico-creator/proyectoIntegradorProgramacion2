@@ -1,0 +1,31 @@
+<%- include("partials/headerRegistrado.ejs")%>
+
+    <h1 id="registration-page">Edición de Perfil</h1>
+    <h2 id="registration-page">Complete los campos necesarios para la edición de su perfil</h2>
+
+
+    <form id="registration-form">
+        <div class="form-group">
+            <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp"
+                placeholder="Nombre">
+        </div>
+
+        <div class="form-group">
+            <input type="apellido" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp"
+                placeholder="Apellido">
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                placeholder="Email">
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+        </div>
+
+        <button type="submit" id="submit-button" class="btn btn-primary"><a class="rutaRes"
+                href="/perfil">Guardar cambios</a></button>
+    </form>
+
+<%- include("partials/footer.ejs")%>
