@@ -69,6 +69,7 @@ div.form-group {
     padding: 6px;
     margin-bottom: 20px;
     width: 40%;
+    background-color: white;
 }
 
 .info{
@@ -77,4 +78,15 @@ div.form-group {
     font-weight: lighter;
 }
 
+#nombre-info{
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+    margin: 0px;
+    margin-top: 3%;
+}
 
+.agregar-form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

@@ -1,6 +1,7 @@
 let agregarControllers = {
     index:(req, res) =>{    
-    res.send('Agregar productos');
+    res.render("agregar")
+    //res.send('Agregar productos');
     }
 };
 
