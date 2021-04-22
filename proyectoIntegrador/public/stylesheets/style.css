@@ -4,7 +4,7 @@ body {
 
 a {
   color:rgb(138, 98, 231);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times;
 }
 
 .imagenproductos{
@@ -13,7 +13,7 @@ a {
 
 .titulos{
   font-size: 3rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Impact, "Haettenschweiler", 'Arial Narrow Bold', sans-serif;
   color: grey;
   font-style: oblique;
 }
