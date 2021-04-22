@@ -52,14 +52,12 @@ insert into productos values (default,"/images/products/honda-civic.jpeg","honda
 insert into productos values (default,"/images/products/volkswagen-T-Cross.jpeg","volkswagen T-Cross","2021.9.14");
 insert into productos values (default,"/images/products/ford-f-150.jpeg","ford f-150","2020.5.15");
 insert into productos values (default,"https://www.google.com/search?q=Jeep+Compass+2.0+Td+At9+4x4+Limited+Plus,+(2020)&rlz=1C1CHBF_esUS858US858&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjT5IX4v4DwAhX3GbkGHb7RBvUQ_AUoAXoECAEQAw#imgrc=NloanFeokOTqiM","Jeep compass","2020.4.25");
-insert into productos values (default,"","Peugeot 3008","2020.10.30");
-insert into productos values (default,"","Peugeot 3009","2021.1.30");
+insert into productos values (default,"/images/products/Peugeot 3008.jpeg","Peugeot 3008","2020.10.30");
+insert into productos values (default,"/images/products/Peugeot 3009.jpeg","Peugeot 3009","2021.1.30");
+insert into productos values (default,"/images/products/Peugeot 3010.jpeg","Peugeot 3010","2020.10.21");
+insert into productos values (default,"/images/products/Peugeot 3011.jpeg","Peugeot 3011","2021.1.20");
 select * from productos;
 
-insert into comentarios values (default,"1980.12.30","excelente",1,10);
-insert into comentarios values (default,"2001.12.30","muy bueno",2,10);
-insert into comentarios values (default,"2021.12.30","horrible",3,10);
-insert into comentarios values (default,"2020.11.13","buen diseño",4,10);
 insert into comentarios values (default,"1980.12.30","excelente",1,1);
 insert into comentarios values (default,"2001.12.30","muy bueno",2,1);
 insert into comentarios values (default,"2021.12.30","horrible",3,1);
@@ -96,6 +94,10 @@ insert into comentarios values (default,"1980.12.30","excelente",1,9);
 insert into comentarios values (default,"2001.12.30","muy bueno",2,9);
 insert into comentarios values (default,"2021.12.30","horrible",3,9);
 insert into comentarios values (default,"2020.11.13","buen diseño",4,9);
+insert into comentarios values (default,"1980.12.30","excelente",1,10);
+insert into comentarios values (default,"2001.12.30","muy bueno",2,10);
+insert into comentarios values (default,"2021.12.30","horrible",3,10);
+insert into comentarios values (default,"2020.11.13","buen diseño",4,10);
 select * from comentarios;
 
 delete from comentarios where id=5;
@@ -142,6 +144,14 @@ where id=7;
 update productos
 set usuario_cargo_id=6
 where id=8;
+
+update productos
+set usuario_cargo_id=6
+where id=9;
+
+update productos
+set usuario_cargo_id=5
+where id=10;
 
 alter table usuarios
 add mail varchar(100);
