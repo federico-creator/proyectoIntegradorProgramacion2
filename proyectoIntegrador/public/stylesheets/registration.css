@@ -62,3 +62,19 @@ div.form-group {
 }
 
 
+/*MI PERFIL CSS*/
+#prueba-div{
+    border: 1.5px solid black;
+    border-radius: 8px;
+    padding: 6px;
+    margin-bottom: 20px;
+    width: 40%;
+}
+
+.info{
+    margin: 0px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+
