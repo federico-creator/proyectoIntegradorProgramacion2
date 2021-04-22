@@ -1,4 +1,5 @@
 create schema parcialautos;
+use parcialautos;
 create table usuarios (
 id int unsigned primary key auto_increment,
 nombre varchar(50) not null,
@@ -141,6 +142,30 @@ where id=7;
 update productos
 set usuario_cargo_id=6
 where id=8;
+
+alter table usuarios
+add mail varchar(100);
+
+update usuarios
+set mail="mimail@yahoo.com.ar"
+where id=1;
+
+update usuarios
+set mail="mimail2@yahoo.com.ar"
+where id=2;
+
+update usuarios
+set mail="mimail@gmail.com.ar"
+where id=3;
+
+update usuarios
+set mail="mimail@oulook.com"
+where id=4;
+
+update usuarios
+set mail="dsada@yahoo.com.ar"
+where id=5;
+
 
 
 
