@@ -1,0 +1,45 @@
+<%- include("partials/headerRegistrado.ejs")%>
+
+    <h1 id="registration-page">¡Carga un producto a la página!</h1>
+
+    <form class="agregar-form" id="registration-form">
+        <article class="info-general">
+            <h2 id="nombre-info">Marca</h2>
+            <div class="form-group">
+                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+            </div>
+            
+            <h2 id="nombre-info">Modelo</h2>
+            <div class="form-group">
+                <input type="dni" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+            </div>
+            
+            <h2 id="nombre-info">Año</h2>
+            <div class="form-group">
+                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+            </div>
+            
+            <h2 id="nombre-info">Color</h2>
+            <div class="form-group">
+                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+            </div>
+        </article>
+    
+        <article class="detalles">
+            <h2 id="nombre-info">Imagen</h2>
+            <div class="form-group">
+                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+            </div>
+            
+            <h2 id="nombre-info">Descripción</h2>
+            <div class="form-group">
+                <textarea type="textarea" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="" ></textarea>
+            </div>
+
+            <button type="submit" id="submit-button" class="btn btn-primary"><a class="rutaRes" href="/">Subir producto</a></button>
+        </article>
+       
+    </form>
+    
+
+<%- include("partials/footer.ejs")%>
