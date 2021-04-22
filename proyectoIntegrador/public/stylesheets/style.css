@@ -1,9 +1,10 @@
 body {
-  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: "Lucida Grande", Helvetica, Arial;
 }
 
 a {
   color:rgb(138, 98, 231);
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .imagenproductos{

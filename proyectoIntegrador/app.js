@@ -13,6 +13,7 @@ var edicionRouter = require('./routes/edicion');
 var comentariosRouter = require('./routes/comentarios');
 var productosRouter = require('./routes/productos');
 var agregarRouter = require('./routes/agregar');
+var busqedaRouter = require('./routes/busqueda');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/edicion', edicionRouter);
 app.use('/comentarios', comentariosRouter);
 app.use('/productos', productosRouter);
 app.use('/agregar', agregarRouter);
+app.use('/busqueda', busqedaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
