@@ -1,11 +1,13 @@
 let autos= require("../data/autos")
 let indexControllers ={
         index: (req, res) => {
-            let productos = []
+            let logueado = []
             for(let i=0;i<autos.lista.length;i+=1){
-                productos.push(autos.lista[i])   
+                logueado.push(autos.lista[i])   
             }
-            res.render("index.ejs", {"products": productos})
+            logueado.push("logueado")
+            res.render("index.ejs", {"products": logueado})
+            
         }, 
     }
 

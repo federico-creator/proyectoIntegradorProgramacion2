@@ -1,4 +1,11 @@
-<%- include("partials/header.ejs")%>
+<%var ultimo = products.pop()%>
+<%console.log(ultimo)%>
+<%if(ultimo=="logueado"){%>
+	<%- include("partials/headerRegistrado.ejs")%>
+<%}else{%>
+	<%products.push(ultimo)%>
+	<%- include("partials/header.ejs")%>
+<%}%>
     
 	<!-- Banner -->
 	<div >
@@ -17,12 +24,12 @@
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 							<figure class="product-box_image">
-								<a href="/productos/busqueda/<%=products.lista[i].modelo%>"><img class="imagenproductos" src="<%=products.lista[i].foto%>" alt="<%products.lista[i].marca%>-<%products.lista[i].modelo%>"></a>
+								<a href="/productos/busqueda/<%=products[i].modelo%>"><img class="imagenproductos" src="<%=products[i].foto%>" alt="<%products[i].marca%>-<%products[i].modelo%>"></a>
 							</figure>
 							<article class="product-box_data">
-								<a href="/productos/busqueda/<%=products.lista[i].modelo%>"><h2><%=products.lista[i].marca%> <%=products.lista[i].modelo%></h2></a>
-								<p><%=products.lista[i].descripcion%></p>
-								<p>Comentarios: <%=products.lista[i].comentarios%></p>
+								<a href="/productos/busqueda/<%=products[i].modelo%>"><h2><%=products[i].marca%> <%=products[i].modelo%></h2></a>
+								<p><%=products[i].descripcion%></p>
+								<p>Comentarios: <%=products[i].comentarios%></p>
 							</article>
 					</section>
 				</div>
@@ -40,12 +47,12 @@
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 							<figure class="product-box_image">
-								<a href="/productos/busqueda/<%=products.lista[i].modelo%>"><img class="imagenproductos" src="<%=products.lista[i].foto%>" alt="<%products.lista[i].marca%>-<%products.lista[i].modelo%>"></a>
+								<a href="/productos/busqueda/<%=products[i].modelo%>"><img class="imagenproductos" src="<%=products[i].foto%>" alt="<%products[i].marca%>-<%products[i].modelo%>"></a>
 							</figure>
 							<article class="product-box_data">
-								<a href="/productos/busqueda/<%=products.lista[i].modelo%>"><h2><%=products.lista[i].marca%> <%=products.lista[i].modelo%></h2></a>
-								<p><%=products.lista[i].descripcion%></p>
-								<p>Comentarios: <%=products.lista[i].comentarios%></p>
+								<a href="/productos/busqueda/<%=products[i].modelo%>"><h2><%=products[i].marca%> <%=products[i].modelo%></h2></a>
+								<p><%=products[i].descripcion%></p>
+								<p>Comentarios: <%=products[i].comentarios%></p>
 							</article>
 					</section>
 				</div>
