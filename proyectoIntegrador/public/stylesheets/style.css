@@ -1,14 +1,25 @@
 body {
   font: "Lucida Grande", Helvetica, Arial;
+  background-color: palegoldenrod;
 }
 
 a {
-  color:rgb(138, 98, 231);
+  color:rgb(110, 9, 9);
   font-family: Georgia, 'Times New Roman', Times;
+}
+
+.nombre{
+  font-style: italic;
+  font-family: "fantasy";
+  text-decoration-line: underline;
 }
 
 .imagenproductos{
   height: 150px;
+}
+
+.logo{
+  height: 80px;
 }
 
 .titulos{
@@ -16,4 +27,8 @@ a {
   font-family: Impact, "Haettenschweiler", 'Arial Narrow Bold', sans-serif;
   color: grey;
   font-style: oblique;
+}
+
+#header{
+  background-color: peru;
 }

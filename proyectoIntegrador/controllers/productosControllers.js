@@ -1,7 +1,7 @@
 let autos= require("../data/autos")
 let productosControllers ={
         index: (req, res) => {
-            res.send(`Lista de productos`);
+            res.render(`secreto`);
         },
         busqueda: (req, res) => {
             let productos=req.params.productos

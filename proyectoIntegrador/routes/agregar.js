@@ -4,5 +4,6 @@ const agregarControllers = require('../controllers/agregarControllers');
 
 /* GET registration page. */
 router.get('/', agregarControllers.index);
+router.get('/:detalle', agregarControllers.detalle);
 
 module.exports = router;
