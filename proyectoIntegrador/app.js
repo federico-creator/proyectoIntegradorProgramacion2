@@ -14,6 +14,7 @@ var productosRouter = require('./routes/productos');
 var agregarRouter = require('./routes/agregar');
 var busqedaRouter = require('./routes/busqueda');
 var loguearseRouter = require('./routes/loguearse');
+var sqlRouter = require('./routes/sql');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use('/productos', productosRouter);
 app.use('/agregar', agregarRouter);
 app.use('/busqueda', busqedaRouter);
 app.use('/loguearse', loguearseRouter);
+app.use('/sql', sqlRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
