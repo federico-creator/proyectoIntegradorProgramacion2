@@ -1,11 +1,16 @@
 let express = require('express');
 let router = express.Router();
 const productosControllers = require('../controllers/productosControllers');
+const agregarControllers = require('../controllers/agregarControllers');
+const editarControllers = require('../controllers/editarproductoController');
 
 /* GET products page. */
-router.get('/', productosControllers.index); //esta ruta nunca se usa por eso no tiene nada (decisión propia)
-router.get('/busqueda/:productos', productosControllers.busqueda);
-router.get('/logueado/:productos', productosControllers.logueado);
+router.get('/', productosControllers.index); 
+router.get('/busqueda/:id', productosControllers.busqueda);
+router.get('/logueado/:id', productosControllers.logueado);
+router.get("/agregar",agregarControllers.index);
+router.get("/editar/:id",editarControllers.index);
+router.post("/editar/:id",editarControllers.post);
 
 
 module.exports = router;

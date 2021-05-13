@@ -1,0 +1,48 @@
+<%- include("partials/headerRegistrado.ejs")%>
+
+    <h1 id="registration-page">¡Edita tu producto en la página!</h1>
+    <form class="agregar-form" id="registration-form"  action="/productos/editar/<%=resultados.id%>" method="POST">
+        <article class="info-general">
+            <h2 id="nombre-info">Marca</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="marca" value="<%=resultados.marca%>">
+            </div>
+            
+            <h2 id="nombre-info">Modelo</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="modelo" value="<%=resultados.modelo%>">
+            </div>
+            
+            <h2 id="nombre-info">Año</h2>
+            <div class="form-group">
+                <input type="date" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="año" value="<%=resultados.año%>">
+            </div>
+            
+            <h2 id="nombre-info">Color</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="color" value="<%=resultados.color%>">
+            </div>
+        </article>
+    
+        <article class="detalles">
+            <h2 id="nombre-info">Imagen</h2>
+            <div class="form-group">
+                <input type="text" name="imagen" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="foto" value="<%=resultados.foto%>">
+            </div>
+            
+            <h2 id="nombre-info">Descripción</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="descripcion" value="<%=resultados.descripcion%>">
+            </div>
+
+            <h2 id="nombre-info">Descripción Larga</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="descripcionlarga" value="<%=resultados.descripcionlarga%>">
+            </div>
+
+            <button type="submit" id="submit-button" class="btn btn-primary">Subir producto</button>
+        </article>
+       
+    </form>    
+
+<%- include("partials/footer.ejs")%>

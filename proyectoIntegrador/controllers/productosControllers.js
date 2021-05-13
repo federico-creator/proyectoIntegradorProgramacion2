@@ -1,28 +1,23 @@
-let autos= require("../data/autos")
+const db = require("../database/models")
+const op = db.Sequelize.Op;
 let productosControllers ={
         index: (req, res) => {
             res.render(`secreto`);
         },
         busqueda: (req, res) => {
-            let productos=req.params.productos
-            let resultados= []
-            for(let i=0;i<autos.lista.length;i+=1){
-                if(autos.lista[i].modelo==productos){
-                    resultados.push(autos.lista[i])
-                }
-            }
-            res.render("products.ejs", {"products": resultados})
+            db.Producto.findByPk(`${req.params.id}`)
+                .then(products=>{ 
+                    return res.render("products", {products});
+                })
+                .catch(err=> console.log(err))
         },
         logueado: (req, res) => {
-            let productos=req.params.productos
-            let resultados= []
-            for(let i=0;i<autos.lista.length;i+=1){
-                if(autos.lista[i].modelo==productos){
-                    resultados.push(autos.lista[i])
-                }
-            }
-            resultados.push("logueado")
-            res.render("products.ejs", {"products": resultados})
+            let logueado = "logueado"
+            db.Producto.findByPk(`${req.params.id}`)
+                .then(products=>{ 
+                    return res.render("products", {products,logueado});
+                })
+                .catch(err=> console.log(err))
         }
         
     }

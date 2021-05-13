@@ -1,24 +1,17 @@
-<%var ultimo = products.pop()%>
-<%if(ultimo=="logueado"){%>
-	<%- include("partials/headerRegistrado.ejs")%>
-<%}else{%>
-	<%products.push(ultimo)%>
-	<%- include("partials/header.ejs")%>
-<%}%>
-<%for(let i=0;i<products.length;i+=1){%> 
+<%- include("partials/header.ejs")%>
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
-        <h2 class="titulos"><%=products[i].marca%> <%=products[i].modelo%></h2> 
-        <!-- <p class="product-detail-description">
-            <a href="../../agregar">Editar producto</a>
-        </p>-->
+        <h2 class="titulos"><%=products.marca%> <%=products.modelo%></h2> 
+            <p class="product-detail-description">
+                <a href="/productos/editar/<%=products.id%>">Editar producto</a>
+            </p> 
     </div>
     <div class="product-detail">
         <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
-                <img src="<%=products[i].foto%>" alt="<%=products[i].foto%>">
+                <img src="<%=products.foto%>" alt="<%=products.foto%>">
                 <p class="product-detail-description">
-                    <%=products[i].descripcionlarga%>
+                    <%=products.descripcionlarga%>
                 </p>
             </article>
             <div class="col-12 col-lg-4">
@@ -43,7 +36,6 @@
         </div>
     </div>
 </div>
-<%}%>
 
 
 <%- include("partials/footer.ejs")%>
