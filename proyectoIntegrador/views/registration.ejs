@@ -4,27 +4,26 @@
 <h2 id="registration-page">¿Ya estás registrado? <a class="link-registration" href="/login">Ingresá aquí</a></h2>
 
 
-<form id="registration-form">
+<form id="registration-form" method="POST" action="/registration">
     <div class="form-group">
-        <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="Nombre">
-        <input type="apellido" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp" placeholder="Apellido">
+        <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="Nombre" name="nombre">
+        <input type="text" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp" placeholder="Apellido" name="apellido">
     </div>
 
     <div class="form-group">
-        <input type="dni" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="DNI">
-        <input type="date" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp" placeholder="Fecha de nacimiento">
+        <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="DNI" name="documento">
+        <input type="date" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp" placeholder="Fecha de nacimiento" name="fecha_de_nacimiento">
     </div>
 
     <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email" name="mail">
     </div>
 
     <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Repetir contraseña">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="password">
     </div>
 
-    <a href="/loguearse" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Confirmar</a>
+    <button type="submit" id="submit-button" class="btn btn-primary">Confirmar</button>
 </form>
 
 
