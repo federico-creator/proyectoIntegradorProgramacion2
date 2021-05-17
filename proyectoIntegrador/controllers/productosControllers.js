@@ -18,7 +18,17 @@ let productosControllers ={
                     return res.render("products", {products,logueado});
                 })
                 .catch(err=> console.log(err))
-        }
+        },
+        borrar: (req, res)=>{
+            let primaryKey = req.params.id;
+            db.Producto.destroy({
+                where: {
+                    id: primaryKey
+                }
+            })
+            .then(()=> res.redirect('/'))
+            .catch(err=> console.log(err))
+        },
         
     }
 

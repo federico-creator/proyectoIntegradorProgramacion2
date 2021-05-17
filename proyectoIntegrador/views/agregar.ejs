@@ -1,41 +1,46 @@
 <%- include("partials/headerRegistrado.ejs")%>
 
-    <h1 id="registration-page">¡Carga un producto a la página!</h1>
-    <form class="agregar-form" id="registration-form">
+    <h1 id="registration-page">¡Carga producto en la página!</h1>
+    <form class="agregar-form" id="registration-form"  action="/productos/agregar" method="POST">
         <article class="info-general">
             <h2 id="nombre-info">Marca</h2>
             <div class="form-group">
-                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="marca" placeholder="marca">
             </div>
             
             <h2 id="nombre-info">Modelo</h2>
             <div class="form-group">
-                <input type="dni" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="modelo" placeholder="modelo">
             </div>
             
             <h2 id="nombre-info">Año</h2>
             <div class="form-group">
-                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+                <input type="date" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="año" placeholder="año">
             </div>
             
             <h2 id="nombre-info">Color</h2>
             <div class="form-group">
-                <input type="nombre" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="color" placeholder="color">
             </div>
         </article>
     
         <article class="detalles">
             <h2 id="nombre-info">Imagen</h2>
             <div class="form-group">
-                <input type="file" name="imagen" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="">
+                <input type="text" name="imagen" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="foto" placeholder="imagen">
             </div>
             
             <h2 id="nombre-info">Descripción</h2>
             <div class="form-group">
-                <textarea type="textarea" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" placeholder="" ></textarea>
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="descripcion" placeholder="descripción">
             </div>
 
-            <button type="submit" id="submit-button" class="btn btn-primary"><a class="rutaRes" href="/loguearse">Subir producto</a></button>
+            <h2 id="nombre-info">Descripción Larga</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="descripcionlarga" placeholder="descripción larga">
+            </div>
+
+            <button type="submit" id="submit-button" class="btn btn-primary">Subir producto</button>
         </article>
        
     </form>    
