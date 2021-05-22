@@ -14,6 +14,7 @@ var productosRouter = require('./routes/productos');
 var busqedaRouter = require('./routes/busqueda');
 var loguearseRouter = require('./routes/loguearse');
 var sqlRouter = require('./routes/sql');
+var session = require('express-session');
 
 var app = express();
 
@@ -26,6 +27,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret:'string secreto',
+resave: false,
+saveUninitialized: true }));
+// configuramos locals para pasar informacion a todas las vistas
+app.use((req, res, next) => {
+  if(req.session.user != undefined){
+    // res.locals = {nombredeusuario: "Juan"}
+    res.locals = req.session.user
+    console.log(res.locals);
+  }
+  return next()
+})
 
 app.use('/', indexRouter);
 app.use('/registration', registrationRouter);
@@ -53,5 +66,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

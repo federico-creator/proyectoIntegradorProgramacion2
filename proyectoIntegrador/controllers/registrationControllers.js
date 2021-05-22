@@ -24,4 +24,6 @@ let registrationControllers =  {
         
 };
 
+
 module.exports = registrationControllers;
+
