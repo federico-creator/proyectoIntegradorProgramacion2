@@ -13,7 +13,7 @@ let agregarControllers = {
         console.log(primaryKey);
         console.log(actualizarauto);
         db.Producto.update(actualizarauto,{where:{id:primaryKey}})
-            .then(resultados=> res.redirect("/"))
+            .then(()=> res.redirect("/"))
             .catch(err => console.log(err))
     },
     
