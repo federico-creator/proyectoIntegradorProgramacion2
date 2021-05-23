@@ -12,7 +12,6 @@ var edicionRouter = require('./routes/edicion');
 var comentariosRouter = require('./routes/comentarios');
 var productosRouter = require('./routes/productos');
 var busqedaRouter = require('./routes/busqueda');
-var loguearseRouter = require('./routes/loguearse');
 var session = require('express-session');
 
 var app = express();
@@ -32,9 +31,12 @@ saveUninitialized: true }));
 // configuramos locals para pasar informacion a todas las vistas
 app.use((req, res, next) => {
   if(req.session.user != undefined){
-    // res.locals = {nombredeusuario: "Juan"}
-    res.locals = req.session.user
-    console.log(res.locals);
+    res.locals = {nombre: req.session.user.nombre,
+                  apellido:  req.session.user.apellido
+    }
+  }
+  else{
+    res.locals = {nombre: null}
   }
   return next()
 })
@@ -47,7 +49,6 @@ app.use('/edicion', edicionRouter);
 app.use('/comentarios', comentariosRouter);
 app.use('/productos', productosRouter);
 app.use('/busqueda', busqedaRouter);
-app.use('/loguearse', loguearseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

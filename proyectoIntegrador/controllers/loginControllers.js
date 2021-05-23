@@ -13,7 +13,12 @@ let loginControllers = {
                                 return res.redirect('/')
                         })
                         .catch(error => console.log(error))
-        }
+        },
+        logout: (req, res) => {
+                req.session.destroy()
+      
+                return res.redirect('/')
+            }
 };
 
 module.exports = loginControllers;

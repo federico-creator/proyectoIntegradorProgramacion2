@@ -1,4 +1,8 @@
-<%- include("partials/header.ejs")%>
+<% if (nombre == undefined) { %>
+	<%- include("partials/header.ejs")%>
+	<% } else { %>	
+	<%- include("partials/headerRegistrado.ejs")%>
+<% } %>
     
     <h1 class="titulos">Usted busco los resultados por la palabra: <%=search[0]%> </h1>
     <%if(search.length==1){%>

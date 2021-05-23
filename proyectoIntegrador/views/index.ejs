@@ -1,64 +1,15 @@
-<%var ultimo = products.pop()%>
-<%if(ultimo=="logueado"){%>
-	<%- include("partials/headerRegistrado.ejs")%>
-<%}else{%>
-	<%products.push(ultimo)%>
+<% if (nombre == null) { %>
 	<%- include("partials/header.ejs")%>
-<%}%>
+	<% } else { %>	
+	<%- include("partials/headerRegistrado.ejs")%>
+<% } %>
+
     
 	<!-- Banner -->
 	<div >
 		<img src="images/Banner-principal-home.jpg" alt="Banner de ofertas">
 	</div>
 	<!-- /Banner -->
-	<%if(ultimo=="logueado"){%>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="titulos">Novedades</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<%for(let i=0;i<4;i+=1){%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-							<figure class="product-box_image">
-								<a href="/productos/logueado/<%=products[i].id%>"><img class="imagenproductos" src="<%=products[i].foto%>" alt="<%products[i].marca%>-<%products[i].modelo%>"></a>
-							</figure>
-							<article class="product-box_data">
-								<a href="/productos/logueado/<%=products[i].id%>"><h2><%=products[i].marca%> <%=products[i].modelo%></h2></a>
-								<p><%=products[i].descripcion%></p>
-								<p>Comentarios: <%=products[i].comentarios%></p>
-							</article>
-					</section>
-				</div>
-			<%}%> 
-		</div>
-	</div>
-	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="titulos">Más comentados</h2>
-			</div>
-			<%for(let i=4;i<8;i+=1){%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-							<figure class="product-box_image">
-								<a href="/productos/logueado/<%=products[i].id%>"><img class="imagenproductos" src="<%=products[i].foto%>" alt="<%products[i].marca%>-<%products[i].modelo%>"></a>
-							</figure>
-							<article class="product-box_data">
-								<a href="/productos/logueado/<%=products[i].id%>"><h2><%=products[i].marca%> <%=products[i].modelo%></h2></a>
-								<p><%=products[i].descripcion%></p>
-								<p>Comentarios: <%=products[i].comentarios%></p>
-							</article>
-					</section>
-				</div>
-			<%}%> 
-		</div>
-	</div>
-	<%}else{%>
 		<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -105,5 +56,4 @@
 			<%}%> 
 		</div>
 	</div>
-	<%}%>
 <%- include("partials/footer.ejs")%>
