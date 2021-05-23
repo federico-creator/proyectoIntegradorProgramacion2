@@ -1,8 +1,8 @@
 <%- include("partials/header.ejs")%>
-<form id="login-form" method="GET">
+<form id="login-form" method="POST" action="/login">
 
     <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email">
+        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email" name="mail">
     </div>
 
     <div class="form-group">
@@ -10,6 +10,6 @@
         
     </div>
 
-    <button type="submit" id="submit-button" class="btn btn-primary"><a class="rutaRes" href="/loguearse">Confirmar</a></button>
+    <button type="submit" id="submit-button" class="btn btn-primary"> Confirmar</button>
 </form>
 <%- include("partials/footer.ejs")%>
