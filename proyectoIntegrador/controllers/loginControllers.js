@@ -10,6 +10,9 @@ let loginControllers = {
                 })
                         .then(user => {
                                 req.session.user = user
+                                if(req.body.recordame){
+                                        res.cookie('usuarioId', user.id, {maxAge: 1000 * 60 * 60})
+                                }
                                 return res.redirect('/')
                         })
                         .catch(error => console.log(error))
@@ -18,7 +21,7 @@ let loginControllers = {
                 req.session.destroy()
       
                 return res.redirect('/')
-            }
+        }
 };
 
 module.exports = loginControllers;

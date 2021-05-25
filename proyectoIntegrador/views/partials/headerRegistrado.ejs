@@ -52,7 +52,10 @@
 	
 				<ul class="right-navbar">
 					<li><a href="/perfil">
-						<%= nombre%> <%= apellido%> <i class="fas fa-user"></i>
+						<% if(locals.nombre && locals.apellido) { %>
+							<%= locals.nombre%> <%= locals.apellido%> <i class="fas fa-user"></i>
+						<% }%> 
+						
 						</a>
 					</li>
 					<li>

@@ -13,6 +13,7 @@ var comentariosRouter = require('./routes/comentarios');
 var productosRouter = require('./routes/productos');
 var busqedaRouter = require('./routes/busqueda');
 var session = require('express-session');
+const db = require('./database/models')
 
 var app = express();
 
@@ -39,6 +40,19 @@ app.use((req, res, next) => {
     res.locals = {nombre: null}
   }
   return next()
+})
+
+app.use((req, res, next) => {
+  if(req.cookies.usuarioId && req.session.user == undefined){
+    db.Usuario.findByPk(req.cookies.usuarioId)
+      .then(user => {
+        req.session.user = user
+        res.locals = req.session.user
+      })
+      .catch (error => console.log(error))
+  }
+  return next()
+
 })
 
 app.use('/', indexRouter);
