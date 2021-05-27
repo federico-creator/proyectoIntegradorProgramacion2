@@ -52,6 +52,7 @@ insert into productos values (default,"Jeep","Compass","2020.12.30","Negro","/im
 insert into productos values (default,"Volkswagen","Vento","2021.12.30","Gris","/images/products/vento.jpeg","Volkswagen Vento 1.4 Highline 150cv At, (2021)",35,"El equipamiento de serie es muy superior a los conocidos en las versiones precedentes. Debido a la nueva plataforma ganó algo de espacio interior, en especial en las plazas traseras, y otro tanto sucede con los materiales utilizados y los detalles de terminación, lo que hace que la percepción de calidad visual sea positiva.",4);
 insert into productos values (default,"Peugeot","3008","2020.12.30","Negro","/images/products/peugeot-3008.jpeg","Peugeot 3008 1.6 Gt-line Thp Tiptronic, (2020)",27,"La 3008 II llega a la Argentina importada de Francia y con dos motorizaciones: una naftera y otra diesel. La naftera es la conocida 1.6 THP (turbo, inyección directa e intercooler), que en esta versión rinde 165 caballos de potencia a 6.000 rpm y 240 Nm de torque a 1.400 rpm. Se ofrece con los niveles de equipamiento Allure y GT-Line. La diesel es 2.0 HDi (turbo, inyección directa e intercooler), con 150 cv y 370 Nm. Se combina sólo con el equipamiento GT-Line.",5);
 select * from productos;
+select * from productos where año like "%2018_%";
 
 insert into comentarios values (default,"1980.12.30","excelente",1,1);
 insert into comentarios values (default,"2001.12.30","muy bueno",2,1);

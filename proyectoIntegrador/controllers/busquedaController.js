@@ -1,26 +1,21 @@
-let autos= require("../data/autos")
+const db = require("../database/models")
+const op = db.Sequelize.Op;
 let productosControllers ={
     index: (req, res) => {
-        var search = req.query.search
-        let resultados= []
-        resultados.push(search)
-        for(let i=0;i<autos.lista.length;i+=1){
-            if(autos.lista[i].modelo==search){
-                resultados.push(autos.lista[i])
-            }
-            else if(autos.lista[i].marca==search){
-                resultados.push(autos.lista[i])
-            }
-            else if(autos.lista[i].año==search){
-                resultados.push(autos.lista[i])
-            }
-            else if(autos.lista[i].color==search){
-                resultados.push(autos.lista[i])
-            }
-        }      
-        res.render("busqueda", {"search": resultados});
+        let busqueda= req.query.search
+        db.Producto.findAll({
+            where: {[op.or]: [
+                { marca: {[op.like]: busqueda} },
+                { modelo: {[op.like]: busqueda} },
+                {año: {[op.between]: [`${busqueda}-01-01` ,`${busqueda}-12-30` ]}},
+                {color: {[op.like]: busqueda}}
+              ]
+            }})
+            .then(resultados=>{
+                console.log(resultados);
+                return res.render("busqueda", {"search": resultados,busqueda})})
+            .catch(err=> console.log(err))
     },
-    
 }
 
 module.exports = productosControllers;

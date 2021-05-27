@@ -16,7 +16,7 @@ module.exports= (sequelize, dataTypes)=>{
             allowNull: true
         },
         año:{
-            type: dataTypes.DATE,
+            type: dataTypes.DATEONLY,
             allowNull: true
         },
         color:{
