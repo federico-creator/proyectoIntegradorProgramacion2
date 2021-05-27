@@ -19,6 +19,7 @@ let loginControllers = {
         },
         logout: (req, res) => {
                 req.session.destroy()
+                res.clearCookie('usuarioId')
       
                 return res.redirect('/')
         }
