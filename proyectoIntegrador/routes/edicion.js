@@ -4,5 +4,5 @@ const edicionControllers = require('../controllers/edicionControllers');
 
 /* GET registration page. */
 router.get('/', edicionControllers.index);
-
+router.post('/', edicionControllers.edicion);
 module.exports = router;

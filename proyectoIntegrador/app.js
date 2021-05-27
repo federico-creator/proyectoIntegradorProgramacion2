@@ -33,7 +33,8 @@ saveUninitialized: true }));
 app.use((req, res, next) => {
   if(req.session.user != undefined){
     res.locals = {nombre: req.session.user.nombre,
-                  apellido:  req.session.user.apellido
+                  apellido:  req.session.user.apellido,
+                  idusuario: req.session.user.id
     }
   }
   else{
