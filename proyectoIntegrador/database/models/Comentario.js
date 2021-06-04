@@ -7,13 +7,16 @@ module.exports= (sequelize, dataTypes)=>{
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        fecha_de_creación:{
-            type: dataTypes.DATE,
+        created_at:{
+            type: dataTypes.DATEONLY,
+            allowNull: true
+        },
+        update_at:{
+            type: dataTypes.DATEONLY,
             allowNull: true
         },
         texto:{
             type: dataTypes.STRING,
-            allowNull: true
         },
         usuario_id:{
             type: dataTypes.INTEGER,

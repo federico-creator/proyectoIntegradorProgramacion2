@@ -17,13 +17,23 @@ module.exports= (sequelize, dataTypes)=>{
             type: dataTypes.INTEGER
         },
         fecha_de_nacimiento:{
-            type: dataTypes.DATE,
+            type: dataTypes.DATEONLY,
         },
         password:{
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            unique: true
         },
         mail:{
             type: dataTypes.STRING,
+            unique: true
+        },
+        created_at:{
+            type: dataTypes.DATEONLY,
+            allowNull: true
+        },
+        update_at:{
+            type: dataTypes.DATEONLY,
+            allowNull: true
         },
     };
     let config={

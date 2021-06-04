@@ -9,19 +9,15 @@ module.exports= (sequelize, dataTypes)=>{
         },
         marca:{
             type: dataTypes.STRING,
-            allowNull: true
         },
         modelo:{
             type: dataTypes.STRING,
-            allowNull: true
         },
         año:{
             type: dataTypes.DATEONLY,
-            allowNull: true
         },
         color:{
             type: dataTypes.STRING,
-            allowNull: true
         },
         foto:{
             type: dataTypes.STRING,
@@ -29,7 +25,6 @@ module.exports= (sequelize, dataTypes)=>{
         },
         descripcion:{
             type: dataTypes.STRING,
-            allowNull: true
         },
         comentarios:{
             type: dataTypes.INTEGER,
@@ -37,6 +32,14 @@ module.exports= (sequelize, dataTypes)=>{
         },
         descripcionlarga:{
             type: dataTypes.STRING,
+            allowNull: true
+        },
+        created_at:{
+            type: dataTypes.DATEONLY,
+            allowNull: true
+        },
+        update_at:{
+            type: dataTypes.DATEONLY,
             allowNull: true
         },
         usuarios_id:{
