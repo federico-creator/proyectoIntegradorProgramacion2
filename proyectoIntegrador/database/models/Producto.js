@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATEONLY,
             allowNull: true
         },
-        update_at: {
+        updated_at: {
             type: dataTypes.DATEONLY,
             allowNull: true
         },
@@ -49,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         table: "productos",
-        timestamps: false,
+        timestamps: true,
         underscored: true,
     };
 

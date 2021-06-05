@@ -31,14 +31,14 @@ module.exports= (sequelize, dataTypes)=>{
             type: dataTypes.DATEONLY,
             allowNull: true
         },
-        update_at:{
+        updated_at:{
             type: dataTypes.DATEONLY,
             allowNull: true
         },
     };
     let config={
         table: "usuarios",
-        timestamps: false,
+        timestamps: true,
         underscored: true,
     };
 
