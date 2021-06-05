@@ -1,4 +1,4 @@
-module.exports= (sequelize, dataTypes)=>{
+module.exports = (sequelize, dataTypes) => {
 
     let alias = "Producto";
     let cols = {
@@ -7,52 +7,60 @@ module.exports= (sequelize, dataTypes)=>{
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        marca:{
+        marca: {
             type: dataTypes.STRING,
         },
-        modelo:{
+        modelo: {
             type: dataTypes.STRING,
         },
-        año:{
+        año: {
             type: dataTypes.DATEONLY,
         },
-        color:{
+        color: {
             type: dataTypes.STRING,
         },
-        foto:{
+        foto: {
             type: dataTypes.STRING,
             allowNull: true
         },
-        descripcion:{
+        descripcion: {
             type: dataTypes.STRING,
         },
-        comentarios:{
+        comentarios: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
-        descripcionlarga:{
+        descripcionlarga: {
             type: dataTypes.STRING,
             allowNull: true
         },
-        created_at:{
+        created_at: {
             type: dataTypes.DATEONLY,
             allowNull: true
         },
-        update_at:{
+        update_at: {
             type: dataTypes.DATEONLY,
             allowNull: true
         },
-        usuarios_id:{
+        usuarios_id: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
     };
-    let config={
+    let config = {
         table: "productos",
         timestamps: false,
         underscored: true,
     };
 
-    const Producto = sequelize.define(alias, cols,config)
+    const Producto = sequelize.define(alias, cols, config)
+    Producto.associate = function (models) {
+        Producto.belongsTo(models.Usuario, {
+            as: "productos",
+            foreignKey: "usuarios_id"
+
+        });
+    }
+
     return Producto
 }
