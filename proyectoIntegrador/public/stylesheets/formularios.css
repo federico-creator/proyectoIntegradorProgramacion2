@@ -1,3 +1,11 @@
+/*REGISTRO CSS*/
+#alert{
+    color: red;
+    font-size: 18px;
+    padding-left: 8%;
+    padding-top: 2%;
+}
+
 #registration-page {
     color: black;
     margin-left: 15px;
@@ -59,6 +67,23 @@ div.form-group {
 #login-form{
     padding-left: 8%;
     margin-top: 50px
+}
+
+#cookies{
+    display: flex;
+    align-items: center;
+}
+
+#checkbox{
+    margin: 0px;
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+}
+
+#recordame{
+    font-size: 18px;
+    margin-left: 1.5%;
 }
 
 

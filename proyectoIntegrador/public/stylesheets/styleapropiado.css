@@ -309,7 +309,7 @@ hr {
 }
 
 #nombres{
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 .footer-derecha, .footer-izquierda{
@@ -317,7 +317,6 @@ hr {
 }
 
 .integrantes{
-  margin-left: 20%;
   margin-top: 3%;
 }
 
@@ -336,6 +335,11 @@ hr {
 .redes{
   justify-content: center;
   margin-top: 5%;
+}
+
+.nombres{
+  display: flex;
+  justify-content: center;
 }
 
 /*====== Product Detail ======*/

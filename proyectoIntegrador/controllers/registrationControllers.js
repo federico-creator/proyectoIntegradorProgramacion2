@@ -23,6 +23,11 @@ let registrationControllers =  {
 
                         return res.render('registration');
 
+                } else if(req.body.password != req.body.repassword){
+                        errors.message = "Las contraseñas no coinciden";
+                        res.locals.errors = errors;
+
+                        return res.render('registration');
                 } else {
                         usuarios.findOne({
                                 where:[{mail: req.body.mail}]
@@ -42,7 +47,8 @@ let registrationControllers =  {
                                                documento: req.body.documento,
                                                fechaNacimiento: req.body.fecha_de_nacimiento,
                                                mail: req.body.mail,
-                                               password: bcrypt.hashSync(req.body.password, 10)
+                                               password: bcrypt.hashSync(req.body.password, 10),
+                                               repetir: req.body.repassword
                                         }
                                         usuarios.create(user)
                                         .then(user => {

@@ -4,7 +4,7 @@
 <h2 id="registration-page">¿Ya estás registrado? <a class="link-registration" href="/login">Ingresá aquí</a></h2>
 
 <% if(locals.errors){ %>
-    <p class="alert"> <%=errors.message%> </p>
+    <p id="alert"> <%=errors.message%> </p>
 <% } %>
 
 <form id="registration-form" method="POST" action="/registration">
@@ -24,6 +24,10 @@
 
     <div class="form-group">
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="password">
+    </div>
+
+    <div class="form-group">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repetir contraseña" name="repassword">
     </div>
 
     <button type="submit" id="submit-button" class="btn btn-primary">Confirmar</button>
