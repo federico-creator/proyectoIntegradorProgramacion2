@@ -3,6 +3,9 @@
 <h1 id="registration-page">Registro de usuario</h1>
 <h2 id="registration-page">¿Ya estás registrado? <a class="link-registration" href="/login">Ingresá aquí</a></h2>
 
+<% if(locals.errors){ %>
+    <p class="alert"> <%=errors.message%> </p>
+<% } %>
 
 <form id="registration-form" method="POST" action="/registration">
     <div class="form-group">

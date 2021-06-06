@@ -1,25 +1,58 @@
 const db = require("../database/models")
 const op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
+const usuarios = db.Usuario
 
 
 let registrationControllers =  {
         index:(req, res) =>{    
                 res.render('registration')
         },
-        registro:(req, res) =>{  
-                let passEncriptada = bcrypt.hashSync(`${req.body.password}`, 10);  
-                let usuario = {  
-                        nombre: req.body.nombre,
-                        apellido: req.body.apellido,
-                        documento: req.body.documento,
-                        fecha_de_nacimiento: req.body.fecha_de_nacimiento,
-                        mail: req.body.mail,
-                        password: passEncriptada,
-                    }
-                    db.Usuario.create(usuario)
-                        .then(() => res.redirect("/"))
-                        .catch(err=>console.log(err))
+        store: (req,res) => {
+                let errors = {};
+
+                if(req.body.mail == ""){ //Ver si el mail está vacío
+                        errors.message = "Email no puede estar vacío";
+                        res.locals.errors = errors;
+
+                        return res.render('registration');
+
+                } else if (req.body.password == "") { //Ver si el password no está vacío
+                        errors.message = "Password no puede estar vacío";
+                        res.locals.errors = errors;
+
+                        return res.render('registration');
+
+                } else {
+                        usuarios.findOne({
+                                where:[{mail: req.body.mail}]
+                        })
+                        .then(usuarios => {
+                                if(usuarios !== null){
+                                        errors.message = "El mail ingresado ya existe";
+                                        res.locals.errors = errors;
+
+                                        return res.render('registration');
+                                } 
+
+                               else {
+                                       let user = {
+                                               nombre: req.body.nombre,
+                                               apellido: req.body.apellido,
+                                               documento: req.body.documento,
+                                               fechaNacimiento: req.body.fecha_de_nacimiento,
+                                               mail: req.body.mail,
+                                               password: bcrypt.hashSync(req.body.password, 10)
+                                        }
+                                        usuarios.create(user)
+                                        .then(user => {
+                                                return res.redirect ('registration')
+                                        })
+                                        .catch(err => console.log(err))
+                               }
+                        })
+                                .catch(err => console.log(err))
+                }
         }
         
 };
