@@ -60,7 +60,15 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "usuarios_id"
 
         });
-    }
+        Producto.associate = function (models) {
+            Producto.hasMany(models.Comentario, {
+                as: "comentarios",
+                foreignKey: "productos_id"
 
-    return Producto
-}
+            });
+        }
+
+        
+    } 
+    return Producto 
+} 

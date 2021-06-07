@@ -1,4 +1,4 @@
-module.exports= (sequelize, dataTypes)=>{
+module.exports = (sequelize, dataTypes) => {
 
     let alias = "Comentario";
     let cols = {
@@ -7,49 +7,49 @@ module.exports= (sequelize, dataTypes)=>{
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        created_at:{
+        created_at: {
             type: dataTypes.DATEONLY,
             allowNull: true
         },
-        updated_at:{
+        updated_at: {
             type: dataTypes.DATEONLY,
             allowNull: true
         },
-        texto:{
+        texto: {
             type: dataTypes.STRING,
         },
-        usuario_id:{
+        usuarios_id: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
-        productos_id:{
+        productos_id: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
-    
+
     };
-    let config={
+    let config = {
         table: "productos",
         timestamps: true,
         underscored: true,
     };
 
-    const Comentario = sequelize.define(alias, cols,config)
+    const Comentario = sequelize.define(alias, cols, config)
     Comentario.associate = function (models) {
         Comentario.belongsTo(models.Usuario, {
             as: "usuarios",
             foreignKey: "usuarios_id"
-        
+
 
         });
-   
-       Comentario.belongsTo(models.Producto, {
+
+        Comentario.belongsTo(models.Producto, {
             as: "productos",
             foreignKey: "productos_id"
-    
 
-    }); 
-}
+
+        });
+    }
 
     return Comentario
 }

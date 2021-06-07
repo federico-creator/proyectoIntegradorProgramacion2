@@ -7,8 +7,23 @@ let productosControllers ={
         busqueda: (req, res) => {
             db.Producto.findByPk(`${req.params.id}`)
                 .then(products=>{ 
-                    return res.render("products", {products});
+                    db.Comentario.findAll({
+                        where: {
+                            
+                            productos_id: products.id
+                        },
+                        include: [
+                            {association: "usuarios"},
+                            ] 
+                            
+                    })
+                    .then(comentarios=>{
+                        return res.render("products", {products, comentarios});
+                    }
+                    )
+        
                 })
+
                 .catch(err=> console.log(err))
         },
         logueado: (req, res) => {
