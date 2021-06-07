@@ -45,19 +45,19 @@ let registrationControllers =  {
                                                nombre: req.body.nombre,
                                                apellido: req.body.apellido,
                                                documento: req.body.documento,
-                                               fechaNacimiento: req.body.fecha_de_nacimiento,
+                                               fecha_de_nacimiento: req.body.fecha_de_nacimiento,
                                                mail: req.body.mail,
-                                               password: bcrypt.hashSync(req.body.password, 10),
-                                               repetir: req.body.repassword
+                                               password: bcrypt.hashSync(req.body.password, 10)
                                         }
-                                        usuarios.create(user)
-                                        .then(user => {
-                                                return res.redirect ('registration')
-                                        })
-                                        .catch(err => console.log(err))
+                                        console.log(user)
+                                        db.Usuario.create(user)
+                                        .then(() => 
+                                                res.redirect ('/')
+                                        )
+                                        .catch(err => console.log(`el error es ${err}`))
                                }
                         })
-                                .catch(err => console.log(err))
+                        .catch(err => console.log(err))
                 }
         }
         
