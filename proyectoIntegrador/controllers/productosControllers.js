@@ -53,14 +53,20 @@ let productosControllers = {
     },
     borrar: (req, res) => {
         let primaryKey = req.params.id;
-        db.Producto.destroy({
+        db.Comentario.destroy({
             where: {
-                id: primaryKey
+                productos_id: primaryKey
             }
         })
-            .then(() => res.redirect('/'))
-            .catch(err => console.log(err))
-    },
+            .then(()=>db.Producto.destroy({
+                where: {
+                    id: primaryKey
+                }
+                })
+                    .then(() => res.redirect('/'))
+                    .catch(err => console.log(err))
+            )
+        },
 
 }
 

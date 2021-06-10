@@ -4,13 +4,14 @@ let agregarControllers = {
     index:(req, res) =>{    
         res.render("agregar")
     },
-    agregar:(req, res) =>{    
+    agregar:(req, res) =>{   
+        console.log(req.file.filename); 
         let producto = {  
             marca: req.body.marca,
             modelo: req.body.modelo,
             año: req.body.año,
             color: req.body.color,
-            foto: req.body.foto,
+            foto: `/images/products/${req.file.filename}`,
             descripcion: req.body.descripcion,
             descripcionlarga: req.body.descripcionlarga,
         }
