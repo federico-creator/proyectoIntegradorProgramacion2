@@ -13,7 +13,11 @@
         <input id="checkbox" type="checkbox" class="form-control" name="recordame">
         <label id="recordame" for="">Recordame</label>
     </div>
-    
+    <div id="error">  
+         <% if(locals.errors!=null){%>  
+            <h1>Los datos son invalidos</h1>
+     <%}%>
+    </div>
 
     <button type="submit" id="submit-button" class="btn btn-primary"> Confirmar</button>
 </form>
