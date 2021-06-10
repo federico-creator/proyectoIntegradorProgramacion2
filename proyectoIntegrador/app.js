@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 var indexRouter = require('./routes/index');
 var registrationRouter = require('./routes/registration');
@@ -16,6 +18,11 @@ var session = require('express-session');
 const db = require('./database/models')
 
 var app = express();
+//multer
+app.post('/productos/agregar', upload.single('products'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
