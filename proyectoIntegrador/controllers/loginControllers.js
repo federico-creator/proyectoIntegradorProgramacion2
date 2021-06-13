@@ -1,5 +1,7 @@
 const db = require("../database/models")
 const op = db.Sequelize.Op;
+const bcrypt = require('bcryptjs')
+
 let loginControllers = {
         index:(req, res) =>{    
                 res.render('login.ejs');
