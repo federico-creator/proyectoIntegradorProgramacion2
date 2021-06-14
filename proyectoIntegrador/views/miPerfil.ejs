@@ -1,11 +1,18 @@
 <%- include("partials/headerRegistrado.ejs")%>
-<% console.log(resultados.productos)%>
+<% console.log(resultados.avatar)%>
     <section class="info-usuario container products-wrapper">
 		<div class="row">
-			<div class="img-container offset-3 col-2">
-				<img src="images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
-                <a href="">agregar o editar foto</a>
-			</div>
+            <% if(resultados.avatar!=null){%>
+                <div class="img-container offset-3 col-2">
+                    <img src="<%= resultados.avatar %>" alt="foto de perfil" class="foto-perfil">
+                    <a href="/edicion">agregar o editar foto</a>
+                </div>
+            <% }else{%>
+                <div class="img-container offset-3 col-2">
+                    <img src="images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
+                    <a href="/edicion">agregar o editar foto</a>
+                </div>
+            <% }%>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%= locals.nombre%> <%= locals.apellido%>
