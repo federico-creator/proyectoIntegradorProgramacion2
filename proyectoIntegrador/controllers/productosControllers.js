@@ -14,7 +14,10 @@ let productosControllers = {
                     },
                     include: [
                         { association: "usuarios" },
-                    ]
+                    ],
+                    order: [
+                        ['updated_at', 'DESC' ]
+                    ],
 
                 })
                     .then(comentarios => {
