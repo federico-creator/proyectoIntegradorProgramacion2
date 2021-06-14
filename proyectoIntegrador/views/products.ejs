@@ -22,16 +22,32 @@
                 </p>
             </article>
             <div class="col-12 col-lg-4">
+                <h1>prueba</h1>
                 <section class="comments">
-                    <%for(let i=0;i<comentarios.length;i+=1){%> 
-                    <article>
-                        <img src="https://via.placeholder.com/35" alt="">
-                        <div class="data">
-                            <p class="user">
-                            <strong> <a href="profile.html"><%=comentarios[i].usuarios.nombre%> </a> </strong>
-                            <%=comentarios[i].texto%></p>
-                        </div>
-                    </article>
+                    <%if(comentarios.length==0){%> 
+                        <h1>no existen comentarios para este producto</h1>
+                    <%}else if(comentarios.length<4){%>
+                        <%for(let i=0;i<comentarios.length;i+=1){%> 
+                            <article>
+                                <img src="https://via.placeholder.com/35" alt="">
+                                <div class="data">
+                                    <p class="user">
+                                    <stronoog> <a href="/usuarios"><%=comentarios[i].usuarios.nombre%></a> </strong>
+                                    <%=comentarios[i].texto%></p>
+                                </div>
+                            </article>
+                            <%}%>
+                    <%}else{%>
+                        <%for(let i=0;i<4;i+=1){%> 
+                            <article>
+                                <img src="https://via.placeholder.com/35" alt="">
+                                <div class="data">
+                                    <p class="user">
+                                    <strong> <a href="/usuarios"><%=comentarios[i].usuarios.nombre%></a> </strong>
+                                    <%=comentarios[i].texto%></p>
+                                </div>
+                            </article>
+                        <%}%>
                     <%}%>
                 </section>
                 <form class="form" action="/productos/busqueda/<%=products.id%>/comentario" method="POST">

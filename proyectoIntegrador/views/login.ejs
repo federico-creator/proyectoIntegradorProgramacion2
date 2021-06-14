@@ -6,14 +6,18 @@
     </div>
 
     <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="password">
     </div>
 
     <div id="cookies" class="form-group">
         <input id="checkbox" type="checkbox" class="form-control" name="recordame">
         <label id="recordame" for="">Recordame</label>
     </div>
-    
+    <div id="error">  
+         <% if(locals.errors!=null){%>  
+            <h1>Los datos son invalidos</h1>
+        <%}%>
+    </div>
 
     <button type="submit" id="submit-button" class="btn btn-primary"> Confirmar</button>
 </form>

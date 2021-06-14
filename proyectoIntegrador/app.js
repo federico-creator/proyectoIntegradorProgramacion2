@@ -12,6 +12,7 @@ var edicionRouter = require('./routes/edicion');
 var comentariosRouter = require('./routes/comentarios');
 var productosRouter = require('./routes/productos');
 var busqedaRouter = require('./routes/busqueda');
+var usuariosRouter = require('./routes/usuarios');
 var session = require('express-session');
 const db = require('./database/models')
 
@@ -56,6 +57,8 @@ app.use((req, res, next) => {
 
 })
 
+
+
 app.use('/', indexRouter);
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
@@ -64,6 +67,7 @@ app.use('/edicion', edicionRouter);
 app.use('/comentarios', comentariosRouter);
 app.use('/productos', productosRouter);
 app.use('/busqueda', busqedaRouter);
+app.use('/usuarios', usuariosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
