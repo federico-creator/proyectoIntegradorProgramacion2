@@ -44,11 +44,11 @@ foreign key (usuarios_id) references usuarios (id),
 foreign key (productos_id) references productos (id)
 );
 
-insert into usuarios values (default,"Eze","Martin",13229842,"1980.12.30","escuela3123","mimail@yahoo.com.ar","2020.12.11","2020.12.11");
-insert into usuarios values (default,"Juan","Pereyra",43222842,"2002.10.25","Juanpereyra123","Juanpereyra@yahoo.com.ar","2018.06.21","2018.06.21");
-insert into usuarios values (default,"Carla","Corte",33229422,"1995.02.10","123312415","CC@gmail.com.ar","2021.07.07","2021.07.07");
-insert into usuarios values (default,"Chino","Martinez",22294562,"1989.11.13","chinito123","CM@oulook.com","2018.04.19","2020.05.06");
-insert into usuarios values (default,"Adrian","Gonzales",39002134,"1990.05.07","Digitalhouse456","AG@yahoo.com.ar","2018.09.20","2018.09.20");
+insert into usuarios values (default,"Eze","Martin",13229842,"1980.12.30","escuela3123","mimail@yahoo.com.ar",null,"2020.12.11","2020.12.11");
+insert into usuarios values (default,"Juan","Pereyra",43222842,"2002.10.25","Juanpereyra123","Juanpereyra@yahoo.com.ar",null,"2018.06.21","2018.06.21");
+insert into usuarios values (default,"Carla","Corte",33229422,"1995.02.10","123312415","CC@gmail.com.ar",null,"2021.07.07","2021.07.07");
+insert into usuarios values (default,"Chino","Martinez",22294562,"1989.11.13","chinito123","CM@oulook.com",null,"2018.04.19","2020.05.06");
+insert into usuarios values (default,"Adrian","Gonzales",39002134,"1990.05.07","Digitalhouse456","AG@yahoo.com.ar",null,"2018.09.20","2018.09.20");
 select * from usuarios;
 
 insert into productos values (default,"Chevrolet","Cruze","2020.12.30","Marron","/images/products/chevrolet-cruze.jpeg","Chevrolet Cruze II 1.4 Sedan At Ltz, (2020)",7,"Sigue con el conocido motor 1.4 turbonaftero (153 cv y 245 Nm). Se combina sólo con caja automática de seis velocidades (con convertidor de par). La única novedad mecánica es que incorporó un botón junto a la palanca de cambios, para desconectar el sistema Start&Stop. Las mejoras más importantes son en materia de seguridad. Además del equipamiento del Cruze LTZ Plus, el Cruze Premier agrega el sistema de frenado autónomo de emergencia (con reconocimiento de peatones), alerta de riesgo de colisión frontal, alerta de punto ciego y sistema de mantenimiento de carril.","2020-06-05","2020-06-05",1);
@@ -95,6 +95,4 @@ insert into comentarios values (default,"2018.01.25","2018.01.25","muy bueno",2,
 insert into comentarios values (default,"2018.04.17","2018.04.17","horrible",3,8);
 insert into comentarios values (default,"2018.04.19","2018.04.19","buen diseño",4,8);
 select * from comentarios;
-
-
 
