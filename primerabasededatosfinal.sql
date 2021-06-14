@@ -8,6 +8,7 @@ documento int unsigned not null,
 fecha_de_nacimiento date not null,
 password varchar (200) not null unique,
 mail varchar (100) not null unique,
+avatar varchar(200),
 created_at date,
 updated_at date
 );

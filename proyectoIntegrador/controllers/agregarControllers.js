@@ -14,6 +14,7 @@ let agregarControllers = {
             foto: `/images/products/${req.file.filename}`,
             descripcion: req.body.descripcion,
             descripcionlarga: req.body.descripcionlarga,
+            usuarios_id: req.session.user.id
         }
         db.Producto.create(producto)
             .then(() => res.redirect("/"))

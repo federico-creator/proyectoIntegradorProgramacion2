@@ -1,39 +1,62 @@
 <%- include("partials/headerRegistrado.ejs")%>
-
-    <h1 id="registration-page">Información de usuario</h1>
-    
-
-    <form id="registration-form">
-        <h2>Nombre</h2>
-        <div id="prueba-div" class="form-group">
-            <h2 class="info"><%=resultados.nombre%></h2> 
+<% console.log(resultados.productos)%>
+    <section class="info-usuario container products-wrapper">
+		<div class="row">
+			<div class="img-container offset-3 col-2">
+				<img src="images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
+                <a href="">agregar o editar foto</a>
+			</div>
+			<div class="data-container col-6">
+				<div class="d-flex align-items-center ">
+					<h1 class="main-title"><%= locals.nombre%> <%= locals.apellido%>
+						<a href="/edicion">
+							<i class="fas fa-cog"></i>
+						</a>
+					</h1>
+					<a class="danger-btn mt-3 ml-4" href="/perfil/borrar/<%=resultados.id%>">BORRAR PERFIL</a>
+				</div>
+				<div>
+					<ul class="">
+                        <% if(resultados.productos==0){%>
+                        <li>0 productos creados</li>
+                        <% }else{%>
+						<li><%= resultados.productos.length%> productos creados</li>
+                        <% }%>
+                        <%if(resultados.comentarios==0){%>
+                        <li>0 comentarios creados</li>
+                        <% }else{%>
+						<li><%= resultados.comentarios.length%> comentarios creados</li>
+                        <% }%>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Datos del usuario -->
+	<!-- Mis productos -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Mis productos</h2>
+			</div>
+            <% if(resultados.productos==0){%>
+                <h1>no existen productos subidos, empeza a crearlos</h1>
+            <% }else{%>
+                <%for(let i=0;i<resultados.productos.length;i+=1){%> 
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                                <figure class="product-box_image">
+                                    <a href="/productos/busqueda/<%=resultados.productos[i].id%>"><img src="<%=resultados.productos[i].foto%>" alt="imagen del auto"></a>
+                                </figure>
+                                <article class="product-box_data">
+                                    <a href="/productos/busqueda/<%=resultados.productos[i].id%>"><h2><%=resultados.productos[i].marca%> <%=resultados.productos[i].modelo%></h2></a>
+                                    <p>descripción:<%=resultados.productos[i].descripcion%></p>
+                                    <p>Comentarios: <%=resultados.comentarios.length%></p>
+                                </article>
+                        </section>
+                    </div>
+                <%}%>
+            <% }%>
         </div>
-
-        <h2>Apellido</h2>
-        <div id="prueba-div" class="form-group"> 
-            <h2 class="info"><%=resultados.apellido%></h2>
-        </div>
-
-        <h2>Email</h2>
-        <div id="prueba-div" class="form-group">
-            <h2 class="info"><%=resultados.mail%></h2>
-        </div>
-
-        <h2>DNI</h2>
-        <div id="prueba-div" class="form-group">
-            <h2 class="info"><%=resultados.documento%></h2>
-        </div>
-
-        <h2>Fecha de nacimiento</h2>
-        <div id="prueba-div" class="form-group">
-            <h2 class="info"><%=resultados.fecha_de_nacimiento%></h2>
-        </div>
-
-
-        <button type="submit" id="submit-button" class="btn btn-primary"><a class="rutaRes" href="/edicion">Editar</a></button>
-
-        <button type="submit" id="submit-button" class="btn btn-primary"><a class="rutaRes" href="/perfil/borrar/<%=resultados.id%>">Borrar</a></button>
-    </form>
-
-
-    <%- include("partials/footer.ejs")%>
+    </div>
+<%- include("partials/footer.ejs")%>
