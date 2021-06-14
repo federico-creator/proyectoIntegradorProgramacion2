@@ -3,6 +3,6 @@ let router = express.Router();
 const usuariosControllers = require('../controllers/usuariosControllers');
 
 /* GET registration page. */
-router.get('/', usuariosControllers.index);
+router.get('/:id', usuariosControllers.index);
 
 module.exports = router;
