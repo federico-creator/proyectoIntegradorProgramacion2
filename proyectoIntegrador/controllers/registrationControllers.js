@@ -51,9 +51,13 @@ let registrationControllers =  {
                                         }
                                         console.log(user)
                                         db.Usuario.create(user)
-                                        .then(() => 
-                                                res.redirect ('/')
-                                        )
+                                        .then(user => {
+                                                req.session.user = user
+                                                if (req.body.recordame != null) {
+                                                        res.cookie('usuarioId', user.id, { maxAge: 1000 * 60 * 60 })
+                                                }
+                                                return res.redirect('/')
+                                        })
                                         .catch(err => console.log(`el error es ${err}`))
                                }
                         })

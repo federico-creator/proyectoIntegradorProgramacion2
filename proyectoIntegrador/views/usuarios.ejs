@@ -12,10 +12,17 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="/images/users/user 2.jpg" alt="Admin" class="rounded-circle" width="150">
-                            <div class="mt-3">
-                                <h4 class="" id="tit-info"><%= resultados.nombre %></h4>
-                            </div>
+                            <% if(resultados.avatar!=null){%>
+                                <img src="<%= resultados.avatar %>" alt="foto de perfil" class="foto-perfil">
+                                <div class="mt-3">
+                                    <h4 class="" id="tit-info"><%= resultados.nombre %></h4> 
+                                </div>
+                            <% }else{%>
+                                <img src="/images/users/user 2.jpg" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4 class="" id="tit-info"><%= resultados.nombre %></h4>
+                                </div>
+                            <% }%>
                         </div>
                     </div>
                 </div>
@@ -41,14 +48,26 @@
                             <div class="col-sm-3">
                                 <h6 class="mb-0" id="tit-info">Productos cargados</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary" id="texto-info"></div>
+                            <div class="col-sm-9 text-secondary" id="texto-info">
+                                <% if(resultados.productos==0){%>
+                                    Ningún producto creado
+                                <% }else{%>
+                                    <%= resultados.productos.length%> productos creados
+                                <% }%>
+                            </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0" id="tit-info">Comentarios realizados</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary" id="texto-info"></div>
+                            <div class="col-sm-9 text-secondary" id="texto-info">
+                                <%if(resultados.comentarios==0){%>
+                                    Ningún comentario realizado
+                                <%}else{%>
+                                    <%= resultados.comentarios.length%> comentarios creados
+                                <% }%>
+                            </div>
                         </div>
                         <hr>
                         <div class="row">
