@@ -2,9 +2,15 @@ const db = require("../database/models")
 const op = db.Sequelize.Op;
 let indexControllers ={
     index:function(req, res) {
-        db.Producto.findAll({order:[["updated_at","desc"]]})
+        db.Producto.findAll({order:[["updated_at","desc"]],
+        include:[
+            { association: "usuarios" },
+        ]})
         .then(products=>
-            {db.Producto.findAll({order:[["comentarios","desc"]]})
+            {db.Producto.findAll({order:[["comentarios","desc"]],
+            include:[
+                { association: "usuarios" },
+            ]})
                 .then(autos=>{ return res.render("index", {products,autos});
             })
         })
