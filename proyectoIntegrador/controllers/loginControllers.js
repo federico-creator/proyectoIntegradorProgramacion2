@@ -3,7 +3,11 @@ const op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 let loginControllers = {
         index:(req, res) =>{    
-                res.render('login');
+                if (req.session.user == null) {
+                        res.render('login')
+	        } else {
+	                res.redirect("/")
+                }
         },
         processLogin: (req, res) => {
                 let errors={}

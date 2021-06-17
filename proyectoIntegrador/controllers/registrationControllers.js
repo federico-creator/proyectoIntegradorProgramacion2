@@ -5,8 +5,12 @@ const usuarios = db.Usuario
 
 
 let registrationControllers =  {
-        index:(req, res) =>{    
-                res.render('registration')
+        index:(req, res) =>{
+                if (req.session.user == null) {
+                        res.render('registration')
+                } else {
+                        res.redirect("/")
+                }
         },
         store: (req,res) => {
                 let errors = {};

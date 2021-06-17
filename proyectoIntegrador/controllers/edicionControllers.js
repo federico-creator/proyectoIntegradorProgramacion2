@@ -2,11 +2,14 @@ const db = require("../database/models")
 const op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 let edicionControllers = {
-        index:(req, res) =>{    
-                db.Usuario.findByPk(`${req.session.user.id}`)
-            .then(resultados=> res.render("edicion",{resultados}))
-            .catch(err => console.log(err))
-            
+        index:(req, res) =>{   
+                if (req.session.user != null) {
+                        db.Usuario.findByPk(`${req.session.user.id}`)
+                        .then(resultados => res.render("edicion", { resultados }))
+                        .catch(err => console.log(err))
+                } else {
+                        res.redirect("/")
+                } 
         },
         edicion:(req,res)=>{
                 console.log(req.body);
