@@ -12,17 +12,21 @@ let edicionControllers = {
                 } 
         },
         edicion:(req,res)=>{
-                console.log(req.body);
                 let primaryKey = req.session.user.id; 
-                let actualizarusuario =  {nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                documento: req.body.documento,
-                fecha_de_nacimiento: req.body.fecha_de_nacimiento,
-                mail: req.body.mail,
-                password: bcrypt.hashSync(req.body.password, 10),
-                avatar: `/images/users/${req.file.filename}`}
+                let actualizarusuario =  {
+                        id:req.session.user.id,
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        documento: req.body.documento,
+                        fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+                        mail: req.body.mail,
+                        password: bcrypt.hashSync(req.body.password, 10),
+                        avatar: `/images/users/${req.file.filename}`}
                 db.Usuario.update(actualizarusuario,{where:{id:primaryKey}})
-                    .then(()=> res.redirect("/"))
+                    .then(()=>{
+                        req.session.user = actualizarusuario
+                        res.redirect("/")
+                    })
                     .catch(err => console.log(err))
             },
 };

@@ -12,7 +12,7 @@ let indexControllers ={
                 { association: "comentarios" }
             ],order:[["comentarios", "updated_at","desc"]],
             })
-            .then(autos=>{ return res.render("index", {products,autos});
+            .then(autos=>{ console.log(req.session.user); return res.render("index", {products,autos});
             })
         })
         .catch(err=> console.log(err))
