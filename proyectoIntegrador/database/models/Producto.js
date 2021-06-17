@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
         },
         año: {
-            type: dataTypes.DATEONLY,
+            type: dataTypes.INTEGER,
         },
         color: {
             type: dataTypes.STRING,
@@ -26,20 +26,16 @@ module.exports = (sequelize, dataTypes) => {
         descripcion: {
             type: dataTypes.STRING,
         },
-        comentarios: {
-            type: dataTypes.INTEGER,
-            allowNull: true
-        },
         descripcionlarga: {
             type: dataTypes.STRING,
             allowNull: true
         },
         created_at: {
-            type: dataTypes.DATEONLY,
+            type: dataTypes.DATE,
             allowNull: true
         },
         updated_at: {
-            type: dataTypes.DATEONLY,
+            type: dataTypes.DATE,
             allowNull: true
         },
         usuarios_id: {
@@ -61,13 +57,10 @@ module.exports = (sequelize, dataTypes) => {
 
         });
         Producto.hasMany(models.Comentario, {
-            as: "comentario",
+            as: "comentarios",
             foreignKey: "productos_id"
 
-            });
-        
-
-        
+        });  
     } 
     return Producto 
 } 

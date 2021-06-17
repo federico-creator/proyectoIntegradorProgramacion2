@@ -5,14 +5,13 @@ let indexControllers ={
         db.Producto.findAll({order:[["updated_at","desc"]],
         include:[
             { association: "usuarios" },
-            { association: "comentario"}
+            { association: "comentarios"}
         ]})
-        .then(products=>
-            {db.Producto.findAll({order:[["comentarios","desc"]],
-            include:[
+        .then(products=> {db.Producto.findAll({include:[
                 { association: "usuarios" },
-                { association: "comentario" }
-            ]})
+                { association: "comentarios" }
+            ],order:[["comentarios", "updated_at","desc"]],
+            })
             .then(autos=>{ return res.render("index", {products,autos});
             })
         })

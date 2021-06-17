@@ -4,7 +4,7 @@
 	<%- include("partials/headerRegistrado.ejs")%>
 <% } %>
 
-<%console.log(products[0])%>
+<%console.log(autos[0])%>
 
 
 	<!-- Banner -->
@@ -28,7 +28,7 @@
 							<article class="product-box_data">
 								<a href="/productos/busqueda/<%=products[i].id%>"><h2><%=products[i].marca%> <%=products[i].modelo%></h2></a>
 								<p><%=products[i].descripcion%></p>
-								<p>Comentarios: <%= products[i].comentario.length%></p>
+								<p>Comentarios: <%= products[i].comentarios.length%></p>
 								<p>Usuario: <%=products[i].usuarios.nombre%></p>
 							</article>
 					</section>
@@ -41,7 +41,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="titulos">Más comentados</h2>
+				<h2 class="titulos">Últimos comentados</h2>
 			</div>
 			<%for(let i=0;i<4;i+=1){%>
 				<div class="col-12 col-sm-6 col-lg-3">
@@ -52,7 +52,7 @@
 							<article class="product-box_data">
 								<a href="/productos/busqueda/<%=autos[i].id%>"><h2><%=autos[i].marca%> <%=autos[i].modelo%></h2></a>
 								<p><%=autos[i].descripcion%></p>
-								<p>Comentarios: <%= autos[i].comentario.length%></p>
+								<p>Comentarios: <%= autos[i].comentarios.length%></p>
 								<p>Usuario: <%=autos[i].usuarios.nombre%></p>
 							</article>
 					</section>

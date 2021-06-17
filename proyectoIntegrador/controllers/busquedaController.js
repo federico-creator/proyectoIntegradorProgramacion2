@@ -7,7 +7,8 @@ let productosControllers ={
             where: {[op.or]: [
                 { marca: {[op.like]: busqueda} },
                 { modelo: {[op.like]: busqueda} },
-                {año: {[op.between]: [`${busqueda}-01-01` ,`${busqueda}-12-30` ]}},
+                { año: {[op.like]: busqueda} },
+                // este sería el comando si año fuese una date{año: {[op.between]: [`${busqueda}-01-01` ,`${busqueda}-12-30` ]}},
                 {color: {[op.like]: busqueda}}
               ]
             }})

@@ -9,7 +9,6 @@ let productosControllers = {
             .then(products => {
                 db.Comentario.findAll({
                     where: {
-
                         productos_id: products.id
                     },
                     include: [

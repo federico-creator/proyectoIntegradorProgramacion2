@@ -8,11 +8,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         created_at: {
-            type: dataTypes.DATEONLY,
+            type: dataTypes.DATE,
             allowNull: true
         },
         updated_at: {
-            type: dataTypes.DATEONLY,
+            type: dataTypes.DATE,
             allowNull: true
         },
         texto: {
