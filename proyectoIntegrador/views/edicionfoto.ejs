@@ -1,0 +1,18 @@
+<%- include("partials/headerRegistrado.ejs")%>
+
+    <h1 id="registration-page">Agregar o editar foto de Perfil</h1>
+    <h2 id="registration-page">Complete el campo con la foto que más le guste para su perfil</h2>
+    
+
+
+    <form id="registration-form" method="POST" enctype="multipart/form-data" action="/edicion/foto">
+
+         <div class="form-group">
+            <h2>Avatar (optativo)</h2>
+            <input type="file" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="avatar" value="<%=locals.avatar%>" required>
+        </div> 
+       
+        <button type="submit" id="submit-button" class="btn btn-primary">Guardar cambios</button>
+    </form>
+
+<%- include("partials/footer.ejs")%>

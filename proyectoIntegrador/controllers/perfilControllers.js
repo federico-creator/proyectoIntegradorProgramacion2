@@ -12,13 +12,27 @@ let perfilControllers = {
 
         },
         borrar: (req, res)=>{
-            let primaryKey = req.params.id;
-            db.Usuario.destroy({
+            let primaryKey = req.session.user.id;
+            db.Comentario.destroy({
                 where: {
-                    id: primaryKey
+                    usuarios_id: primaryKey
                 }
             })
-            .then(()=> res.redirect('/'))
+                .then(()=> db.Producto.destroy({
+                    where: {
+                        usuarios_id: primaryKey
+                    }
+                })
+                    .then(()=>db.Usuario.destroy({
+                        where: {
+                            id: primaryKey
+                        }
+                    })
+                        .then(()=>{
+                        req.session.destroy()
+                        res.clearCookie('usuarioId')
+                  
+                        return res.redirect('/')})))
             .catch(err=> console.log(err))
         },
 

@@ -4,12 +4,13 @@
             <% if(resultados.avatar!=null){%>
                 <div class="img-container offset-3 col-2">
                     <img src="<%= resultados.avatar %>" alt="foto de perfil" class="foto-perfil">
-                    <a href="/edicion">agregar o editar foto</a>
+                    <a href="/edicion/foto">agregar o editar foto</a>
+                    <a class="danger-btn mt-3 ml-4" href="/edicion/borrarfoto">borrar foto</a>
                 </div>
             <% }else{%>
                 <div class="img-container offset-3 col-2">
                     <img src="images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
-                    <a href="/edicion">agregar o editar foto</a>
+                    <a href="/edicion/foto">agregar o editar foto</a>
                 </div>
             <% }%>
 			<div class="data-container col-6">
@@ -19,7 +20,7 @@
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<a class="danger-btn mt-3 ml-4" href="/perfil/borrar/<%=resultados.id%>">BORRAR PERFIL</a>
+					<a class="danger-btn mt-3 ml-4" href="/perfil/borrar">BORRAR PERFIL</a>
 				</div>
 				<div>
 					<ul class="">

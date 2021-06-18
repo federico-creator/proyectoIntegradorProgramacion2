@@ -1,45 +1,52 @@
 <%- include("partials/headerRegistrado.ejs")%>
 
+    <% if(locals.errors=! null){ %>
+        <p id="alert"> Los datos son incorrectos </p>
+    <% } %>
+
     <h1 id="registration-page">Edición de Perfil</h1>
     <h2 id="registration-page">Complete los campos necesarios para la edición de su perfil</h2>
+    
 
 
-    <form id="registration-form" method="POST" enctype="multipart/form-data" action="/edicion">
+    <form id="registration-form" method="POST" action="/edicion">
         <div class="form-group">
             <h2>Nombre</h2>
             <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp"
-            name="nombre" value="<%=resultados.nombre%>">
+            name="nombre" value="<%=resultados.nombre%>" required>
         </div>
 
         <div class="form-group">
             <h2>Apellido</h2>
             <input type="text" class="form-control" id="exampleInputApellido" aria-describedby="emailHelp"
-            name="apellido" value="<%=resultados.apellido%>">
+            name="apellido" value="<%=resultados.apellido%>" required>
         </div>
 
         <div class="form-group">
             <h2>Email</h2>
             <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-            name="mail" value="<%=resultados.mail%>">
+            name="mail" value="<%=resultados.mail%>" required>
         </div>
 
         <div class="form-group">
             <h2>Documento</h2>
-            <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="documento" value="<%=resultados.documento%>">
+            <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="documento" value="<%=resultados.documento%>" required>
         </div>
 
         <div class="form-group">
             <h2>Nacimiento</h2>
-            <input type="date" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="fecha_de_nacimiento" value="<%=resultados.fecha_de_nacimiento%>">
+            <input type="date" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="fecha_de_nacimiento" value="<%=resultados.fecha_de_nacimiento%>" required>
         </div>
 
+        <br><br>
+        <h1>cambiar contraseña (optativo)</h1>
         <div class="form-group">
             <h2>Contraseña</h2>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="<%=resultados.password%>">
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
         </div>
         <div class="form-group">
-            <h2>Avatar</h2>
-            <input type="file" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="avatar" placeholder="imagen">
+            <h2>Introducir contraseá anterior (solo llenarlo si se introduce una nueva contraseña)</h2>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="confirmpassword">
         </div>
 
         <button type="submit" id="submit-button" class="btn btn-primary">Guardar cambios</button>

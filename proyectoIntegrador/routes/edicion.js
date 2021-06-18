@@ -15,5 +15,8 @@ var upload = multer({ storage: storage });
 
 /* GET registration page. */
 router.get('/', edicionControllers.index);
-router.post('/', upload.single("avatar"),edicionControllers.edicion);
+router.post('/',edicionControllers.edicion);
+router.get('/foto', edicionControllers.foto);
+router.post('/foto', upload.single("avatar"),edicionControllers.agregarfoto);
+router.get('/borrarfoto', edicionControllers.borrarfoto);
 module.exports = router;
