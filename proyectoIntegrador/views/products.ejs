@@ -6,12 +6,14 @@
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
         <h2 class="titulos"><%=products.marca%> <%=products.modelo%></h2> 
+        <% if (products.usuarios.id == locals.idusuario) { %>
             <p class="product-detail-description">
                 <a href="/productos/editar/<%=products.id%>">Editar producto</a>
             </p> 
             <p class="product-detail-description">
                 <a href="/productos/borrar/<%=products.id%>">Eliminar producto</a>
             </p> 
+        <% } %>
     </div>
     <div class="product-detail">
         <div class="row">
@@ -22,8 +24,11 @@
                 </p>
             </article>
             <div class="col-12 col-lg-4">
-                <h1>prueba</h1>
                 <section class="comments">
+                    <% console.log(locals.errors) %>
+                    <% if(locals.errors){ %>
+                        <p id="alert"> hola <%=errors.message%> </p>
+                    <% } %>
                     <%if(comentarios.length==0){%> 
                         <h1>no existen comentarios para este producto</h1>
                     <%}else if(comentarios.length<4){%>
