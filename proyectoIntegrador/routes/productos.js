@@ -3,8 +3,6 @@ let router = express.Router();
 const multer = require("multer")
 const path = require("path")
 const productosControllers = require('../controllers/productosControllers');
-const agregarControllers = require('../controllers/agregarControllers');
-const editarControllers = require('../controllers/editarproductoController');
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
           cb(null, 'public/images/products')
@@ -15,16 +13,22 @@ var storage = multer.diskStorage({
   })
 var upload = multer({ storage: storage });
 
-/* GET products page. */
+//todos los productos
 router.get('/', productosControllers.index); 
+//productos seleccionados por id
 router.get('/busqueda/:id', productosControllers.busqueda);
-router.get('/logueado/:id', productosControllers.logueado);
-router.get("/agregar",agregarControllers.index);
-router.post('/agregar', upload.single("foto") , agregarControllers.agregar)
+//agregar productos
+router.get("/agregar",productosControllers.agregar);
+router.post('/agregar', upload.single("foto") , productosControllers.agregarpost)
+//borrar productos
 router.get("/borrar/:id",productosControllers.borrar);
-router.get("/editar/:id",editarControllers.index);
-router.post("/editar/:id",editarControllers.post);
+//editar productos
+router.get("/editar/:id",productosControllers.editar);
+router.post("/editar/:id",productosControllers.editarpost);
+//escribir comentarios en productos
 router.post('/busqueda/:id/comentario', productosControllers.comentar);
+//busqueda de productos por metodo search
+router.get('/search', productosControllers.search);
 
 
 module.exports = router;

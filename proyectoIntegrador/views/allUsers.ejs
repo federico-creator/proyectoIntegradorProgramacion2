@@ -1,0 +1,34 @@
+<% if (nombre==null) { %>
+    <%- include("partials/header.ejs")%>
+<% } else { %>
+    <%- include("partials/headerRegistrado.ejs")%>
+<% } %>
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titulos">Todos los usuarios</h1>
+        </div>
+        <!-- Show the "ultimos" products -->
+        <%for(let i=0;i<products.length;i+=1){%>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <section class="product-box">
+                        <% if (products[i].avatar==undefined) { %>
+                            <figure class="product-box_image">
+                                <a href="/usuarios/users/<%=products[i].id%>"><img class="imagenproductos" src="\images\products\default-image.png" alt=\images\products\default-image.png></a>
+                            </figure>
+                        <% } else { %>
+                            <figure class="product-box_image">
+                                <a href="/usuarios/users/<%=products[i].id%>"><img class="imagenproductos" src="<%=products[i].avatar%>" alt="imagen del usuario"></a>
+                            </figure>
+                        <% } %>
+                        <article class="product-box_data">
+                            <a href="/usuarios/users/<%=products[i].id%>"><h2><%=products[i].nombre%> <%=products[i].apellido%></h2></a>
+                            <p>Cantidad de comentarios creados: <%= products[i].comentarios.length%></p>
+                            <p>Cantidad de productos creados:: <%=products[i].productos.length%></p>
+                        </article>
+                </section>
+            </div>
+        <%}%> 
+    </div>
+</div>
+<%- include("partials/footer.ejs")%>

@@ -4,23 +4,23 @@
             <% if(resultados.avatar!=null){%>
                 <div class="img-container offset-3 col-2">
                     <img src="<%= resultados.avatar %>" alt="foto de perfil" class="foto-perfil">
-                    <a href="/edicion/foto">agregar o editar foto</a>
-                    <a class="danger-btn mt-3 ml-4" href="/edicion/borrarfoto">borrar foto</a>
+                    <a href="/usuarios/peril/foto">agregar o editar foto</a>
+                    <a class="danger-btn mt-3 ml-4" href="/usuarios/perfil/borrarfoto">borrar foto</a>
                 </div>
             <% }else{%>
                 <div class="img-container offset-3 col-2">
-                    <img src="images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
-                    <a href="/edicion/foto">agregar o editar foto</a>
+                    <img src="/images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
+                    <a href="/usuarios/perfil/foto">agregar o editar foto</a>
                 </div>
             <% }%>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%= locals.nombre%> <%= locals.apellido%>
-						<a href="/edicion">
+						<a href="/usuarios/perfil/editar">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<a class="danger-btn mt-3 ml-4" href="/perfil/borrar">BORRAR PERFIL</a>
+					<a class="danger-btn mt-3 ml-4" href="/usuarios/perfil/borrar">BORRAR PERFIL</a>
 				</div>
 				<div>
 					<ul class="">

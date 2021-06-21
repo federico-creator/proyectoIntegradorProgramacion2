@@ -2,7 +2,12 @@ const db = require("../database/models")
 const op = db.Sequelize.Op;
 let productosControllers = {
     index: (req, res) => {
-        res.render(`secreto`);
+        db.Producto.findAll({include:[
+            { association: "usuarios" },
+            { association: "comentarios"}
+        ]})
+        .then(products=>{return res.render("allProducts", { products })})
+        .catch((err)=>{console.log(err)})
     },
     busqueda: (req, res) => {
         db.Producto.findByPk(`${req.params.id}`, {include: [
@@ -33,10 +38,7 @@ let productosControllers = {
     comentar: (req, res) => {
         let errors = {}
         if(req.session.user == undefined){
-            errors.message="No posee un usuario para cargar comentarios, cree uno ahora mismo";
-            res.locals.errors=errors;
-            console.log(res.locals.errors); 
-            return res.redirect(`/productos/busqueda/${req.params.id}`)
+            return res.redirect(`/usuarios/login`)
         }
         else{
             const comentario = {
@@ -53,20 +55,12 @@ let productosControllers = {
                 .catch(err => console.log(`el error es ${err}`))
         }
     },
-    logueado: (req, res) => {
-        let logueado = "logueado"
-        db.Producto.findByPk(`${req.params.id}`)
-            .then(products => {
-                return res.render("products", { products, logueado });
-            })
-            .catch(err => console.log(err))
-    },
     borrar: (req, res) => {
         let primaryKey = req.params.id;
         db.Producto.findByPk(primaryKey)
         .then(auto=>{
             if (req.session.user == undefined){
-                res.redirect("/")
+                res.redirect(`/productos/busqueda/${req.params.id}`)
             }
             else if (auto.usuarios_id == req.session.user.id){
                 db.Comentario.destroy({
@@ -84,10 +78,94 @@ let productosControllers = {
                     )
             }
             else{
-                res.redirect("/")
+                res.redirect(`/productos/busqueda/${req.params.id}`)
             }
         })
         },
+
+        //busqueda por metodo search
+        search: (req, res) => {
+            let busqueda= req.query.search
+            db.Producto.findAll({
+                where: {[op.or]: [
+                    { marca: {[op.like]: busqueda} },
+                    { modelo: {[op.like]: busqueda} },
+                    { año: {[op.like]: busqueda} },
+                    // este sería el comando si año fuese una date{año: {[op.between]: [`${busqueda}-01-01` ,`${busqueda}-12-30` ]}},
+                    {color: {[op.like]: busqueda}},
+                    {descripcion: {[op.like]: `%${busqueda}%`}}
+                  ]
+                },include: [
+                    { association: "usuarios" },
+                    { association: "comentarios" },
+                ],})
+                .then(resultados=>{
+                    return res.render("busqueda", {"search": resultados,busqueda})})
+                .catch(err=> console.log(err))
+        },
+
+        //editar producto
+
+        editar:(req, res) =>{    
+            let primaryKey = req.params.id;
+            db.Producto.findByPk(primaryKey)
+            .then((auto)=>{
+                if (req.session.user == undefined){
+                    res.redirect(`/productos/busqueda/${req.params.id}`)
+                }
+                else if (auto.usuarios_id == req.session.user.id){
+                    db.Producto.findByPk(primaryKey)
+                    .then(resultados=> res.render("editarproducto",{resultados}))
+                    .catch(err => console.log(err))
+                }
+                else{
+                    res.redirect(`/productos/busqueda/${req.params.id}`)
+                }
+            })
+        },
+        editarpost:(req,res)=>{
+            let primaryKey = req.params.id;
+            db.Producto.findByPk(primaryKey)
+            .then((auto)=>{
+                if (req.session.user == undefined){
+                    res.redirect(`/productos/busqueda/${req.params.id}`)
+                }
+                else if (auto.usuarios_id == req.session.user.id){
+                    let actualizarauto = req.body
+                    db.Producto.update(actualizarauto,{where:{id:primaryKey}})
+                        .then(()=> res.redirect("/"))
+                        .catch(err => console.log(err))
+                }
+                else{
+                    res.redirect(`/productos/busqueda/${req.params.id}`)
+                }
+            })
+            },
+
+    // agregar producto
+    agregar:(req, res) =>{    
+        if (req.session.user != null) {
+            res.render('agregar')
+        } else {
+            res.redirect("/")
+        }
+    },
+    agregarpost:(req, res) =>{   
+        console.log(req.file.filename); 
+        let producto = {  
+            marca: req.body.marca,
+            modelo: req.body.modelo,
+            año: req.body.año,
+            color: req.body.color,
+            foto: `/images/products/${req.file.filename}`,
+            descripcion: req.body.descripcion,
+            descripcionlarga: req.body.descripcionlarga,
+            usuarios_id: req.session.user.id
+        }
+        db.Producto.create(producto)
+            .then(() => res.redirect("/"))
+            .catch(err=>console.log(err))
+    },
 
 }
 

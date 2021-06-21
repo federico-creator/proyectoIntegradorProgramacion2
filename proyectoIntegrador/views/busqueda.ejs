@@ -28,14 +28,12 @@
                         <article class="product-box_data">
                             <a href="/productos/busqueda/<%=search[i].id%>"><h2><%=search[i].marca%> <%=search[i].modelo%></h2></a>
                             <p><%=search[i].descripcion%></p>
-                            <p>Comentarios: <%=search[i].comentarios%></p>
-                            <p>Usuario:</p>
+                            <p>Comentarios: <%=search[i].comentarios.length%></p>
+                            <p>Usuario:<%=search[i].usuarios.nombre%></p>
                         </article>
                 </section>
             </div>
         <%}%>
     <%}%>
-
-    <% console.log(search) %> 
 
 <%- include("partials/footer.ejs")%>

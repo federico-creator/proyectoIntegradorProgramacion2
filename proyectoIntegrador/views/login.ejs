@@ -1,5 +1,7 @@
 <%- include("partials/header.ejs")%>
-<form id="login-form" method="POST" action="/login">
+<h1 id="registration-page">Login de usuario</h1>
+<h2 id="registration-page">¿No tenes cuenta? <a class="link-registration" href="/usuarios/registro">Registrate aquí</a></h2>
+<form id="login-form" method="POST" action="/usuarios/login">
 
     <div class="form-group">
         <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email" name="mail" required>
