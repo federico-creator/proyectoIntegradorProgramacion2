@@ -1,6 +1,12 @@
 <%- include("partials/header.ejs")%>
 <h1 id="registration-page">Login de usuario</h1>
 <h2 id="registration-page">¿No tenes cuenta? <a class="link-registration" href="/usuarios/registro">Registrate aquí</a></h2>
+
+
+<% if(locals.errors){ %>
+    <p id="alert"> Los datos son inválidos </p>
+<% } %>
+
 <form id="login-form" method="POST" action="/usuarios/login">
 
     <div class="form-group">
@@ -15,11 +21,7 @@
         <input id="checkbox" type="checkbox" class="form-control" name="recordame">
         <label id="recordame" for="">Recordame</label>
     </div>
-    <div id="error">  
-         <% if(locals.errors!=null){%>  
-            <h1>Los datos son invalidos</h1>
-        <%}%>
-    </div>
+    
 
     <button type="submit" id="submit-button" class="btn btn-primary"> Confirmar</button>
 </form>
