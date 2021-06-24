@@ -33,7 +33,7 @@
                     <%}else if(comentarios.length<4){%>
                         <%for(let i=0;i<comentarios.length;i+=1){%> 
                             <article>
-                                <img src="https://via.placeholder.com/35" alt="">
+                                <img src="<%=comentarios[i].usuarios.avatar%>" alt="">
                                 <div class="data">
                                     <p class="user">
                                     <stronoog> <a href="/usuarios/users/<%=comentarios[i].usuarios.id%>"><%=comentarios[i].usuarios.nombre%></a> </strong>
@@ -44,7 +44,7 @@
                     <%}else{%>
                         <%for(let i=0;i<4;i+=1){%> 
                             <article>
-                                <img src="https://via.placeholder.com/35" alt="">
+                                <img src="<%=comentarios[i].usuarios.avatar%>" alt="">
                                 <div class="data">
                                     <p class="user">
                                     <strong> <a href="/usuarios/users/<%=comentarios[i].usuarios.id%>"><%=comentarios[i].usuarios.nombre%></a> </strong>
