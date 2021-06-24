@@ -44,7 +44,20 @@
                     <%}else{%>
                         <%for(let i=0;i<4;i+=1){%> 
                             <article>
-                                <img src="<%=comentarios[i].usuarios.avatar%>" alt="">
+                                 <% if(comentarios[i].usuarios.avatar==null){%>
+                                    <div class="img-container offset-3 col-2">
+                                        <img src="/images/products/default-image.png" alt="foto de perfil" class="foto-perfil">
+                                    </div>
+                                <% }else{%>
+                                    <div class="img-container offset-3 col-2">
+                                        <img src="<%=comentarios[i].usuarios.avatar%>" alt="foto de perfil" class="foto-perfil">
+                                    </div>
+                                <% }%>
+                                
+                                
+                                <!-- <img src="<%=comentarios[i].usuarios.avatar%>" alt=""> -->
+                                
+                                
                                 <div class="data">
                                     <p class="user">
                                     <strong> <a href="/usuarios/users/<%=comentarios[i].usuarios.id%>"><%=comentarios[i].usuarios.nombre%></a> </strong>
