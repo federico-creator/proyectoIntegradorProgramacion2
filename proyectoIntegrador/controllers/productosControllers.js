@@ -36,13 +36,12 @@ let productosControllers = {
             .catch(err => console.log(err))
     },
     comentar: (req, res) => {
-        let errors = {}
         if(req.session.user == undefined){
             return res.redirect(`/usuarios/login`)
         }
         else{
             const comentario = {
-                created_at: new Date(),
+                created_at: new Date(),//eso esta creado así para mostrar que hay otra forma de hacer el created at sin timestamps
                 updated_at: new Date(),
                 texto: req.body.comentario,
                 productos_id: req.params.id,
@@ -131,7 +130,14 @@ let productosControllers = {
                     res.redirect(`/productos/busqueda/${req.params.id}`)
                 }
                 else if (auto.usuarios_id == req.session.user.id){
-                    let actualizarauto = req.body
+                    let actualizarauto = {marca: req.body.marca,
+                        modelo: req.body.modelo,
+                        año: req.body.año,
+                        color: req.body.color,
+                        foto: `/images/products/${req.file.filename}`,
+                        descripcion: req.body.descripcion,
+                        descripcionlarga: req.body.descripcionlarga,
+                        usuarios_id: req.session.user.id}
                     db.Producto.update(actualizarauto,{where:{id:primaryKey}})
                         .then(()=> res.redirect("/"))
                         .catch(err => console.log(err))
@@ -151,7 +157,6 @@ let productosControllers = {
         }
     },
     agregarpost:(req, res) =>{   
-        console.log(req.file.filename); 
         let producto = {  
             marca: req.body.marca,
             modelo: req.body.modelo,

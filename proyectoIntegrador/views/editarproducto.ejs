@@ -1,7 +1,7 @@
 <%- include("partials/headerRegistrado.ejs")%>
 
     <h1 id="registration-page">¡Edita tu producto en la página!</h1>
-    <form class="agregar-form" id="registration-form"  action="/productos/editar/<%=resultados.id%>" method="POST">
+    <form class="agregar-form" id="registration-form"  action="/productos/editar/<%=resultados.id%>" method="POST" enctype="multipart/form-data">
         <article class="info-general">
             <h2 id="nombre-info">Marca</h2>
             <div class="form-group">
@@ -15,7 +15,7 @@
             
             <h2 id="nombre-info">Año</h2>
             <div class="form-group">
-                <input type="date" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="año" value="<%=resultados.año%>" required>
+                <input type="number" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="año" value="<%=resultados.año%>" required>
             </div>
             
             <h2 id="nombre-info">Color</h2>
@@ -27,7 +27,7 @@
         <article class="detalles">
             <h2 id="nombre-info">Imagen</h2>
             <div class="form-group">
-                <input type="text" name="imagen" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="foto" value="<%=resultados.foto%>" required>
+                <input type="file" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" name="foto" value="<%=resultados.foto%>" required>
             </div>
             
             <h2 id="nombre-info">Descripción</h2>

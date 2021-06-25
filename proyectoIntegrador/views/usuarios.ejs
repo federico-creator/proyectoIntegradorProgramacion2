@@ -82,6 +82,31 @@
 
             </div>
         </div>
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Productos cargados por el usuario</h2>
+                </div>
+                <% if(resultados.productos==0){%>
+                    <h1>no existen productos subidos por este usuario</h1>
+                <% }else{%>
+                    <%for(let i=0;i<resultados.productos.length;i+=1){%> 
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                    <figure class="product-box_image">
+                                        <a href="/productos/busqueda/<%=resultados.productos[i].id%>"><img src="<%=resultados.productos[i].foto%>" alt="imagen del auto"></a>
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <a href="/productos/busqueda/<%=resultados.productos[i].id%>"><h2><%=resultados.productos[i].marca%> <%=resultados.productos[i].modelo%></h2></a>
+                                        <p>descripción:<%=resultados.productos[i].descripcion%></p>
+                                        <p>Comentarios: <%=resultados.comentarios.length%></p>
+                                    </article>
+                            </section>
+                        </div>
+                    <%}%>
+                <% }%>
+            </div>
+        </div>
 
     </div>
 </div>
