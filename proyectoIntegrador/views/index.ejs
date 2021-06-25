@@ -29,7 +29,7 @@
 								<a href="/productos/busqueda/<%=products[i].id%>"><h2><%=products[i].marca%> <%=products[i].modelo%></h2></a>
 								<p><%=products[i].descripcion%></p>
 								<p>Comentarios: <%= products[i].comentarios.length%></p>
-								<p>Usuario: <%=products[i].usuarios.nombre%></p>
+								<p>Usuario: <a href="/usuarios/users/<%=products[i].usuarios.id%>"><%=products[i].usuarios.nombre%></a> </p>
 							</article>
 					</section>
 				</div>
@@ -53,7 +53,7 @@
 								<a href="/productos/busqueda/<%=autos[i].id%>"><h2><%=autos[i].marca%> <%=autos[i].modelo%></h2></a>
 								<p><%=autos[i].descripcion%></p>
 								<p>Comentarios: <%= autos[i].comentarios.length%></p>
-								<p>Usuario: <%=autos[i].usuarios.nombre%></p>
+								<p>Usuario: <a href="/usuarios/users/<%=autos[i].usuarios.id%>"><%=autos[i].usuarios.nombre%></a> </p>
 							</article>
 					</section>
 				</div>
