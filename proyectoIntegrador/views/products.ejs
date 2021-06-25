@@ -6,7 +6,8 @@
 <div class="container products-wrapper">
     <div class="d-flex align-items-center">
         
-        <h2 class="titulos"><%=products.marca%> <%=products.modelo%></h2> 
+        <h2 class="titulos"><%=products.marca%> <%=products.modelo%></h2>
+
         <% if (products.usuarios.id == locals.idusuario) { %>
             <p class="product-detail-description">
                 <a href="/productos/editar/<%=products.id%>">Editar producto</a>
@@ -16,6 +17,7 @@
             </p> 
         <% } %>
     </div>
+    <h1> Usuario:<a href="/usuarios/users/<%=products.usuarios.id%>"><%=products.usuarios.nombre%></a> </h1>
     <div class="product-detail">
         <div class="row">
             <article class="col-12 col-lg-8 product-detail-info">
