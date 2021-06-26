@@ -194,7 +194,7 @@ let usuariosControllers = {
                     errors.message = "Email no puede estar vacío";
                     res.locals.errors = errors;
 
-                    return res.redirect('/edicion');
+                    return res.redirect('/usuarios/perfil/editar');
 
             } 
             else { if(req.body.password == ""){
@@ -219,7 +219,7 @@ let usuariosControllers = {
                             if(bcrypt.compareSync(req.body.confirmpassword, req.session.user.password)==false){
                                     errors.message="Los datos de la contraseña son incorrectos";
                                     res.locals.errors=errors;
-                                    return res.redirect("/edicion");}
+                                    return res.redirect("/usuarios/perfil/editar");}
                             else{let actualizarusuario =  {
                                     id:req.session.user.id,
                                     nombre: req.body.nombre,

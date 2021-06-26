@@ -27,6 +27,7 @@ router.get("/editar/:id",productosControllers.editar);
 router.post("/editar/:id",upload.single("foto"),productosControllers.editarpost);
 //escribir comentarios en productos
 router.post('/busqueda/:id/comentario', productosControllers.comentar);
+router.get('/busqueda/:id/borrarcomentario/:idcomentario', productosControllers.borrarcomentario);
 //busqueda de productos por metodo search
 router.get('/search', productosControllers.search);
 

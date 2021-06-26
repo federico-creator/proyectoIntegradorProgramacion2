@@ -54,6 +54,15 @@ let productosControllers = {
                 .catch(err => console.log(`el error es ${err}`))
         }
     },
+    borrarcomentario: (req, res) => {
+        db.Comentario.destroy({
+            where: {
+                id: req.params.idcomentario
+            }
+        })
+        .then(() => res.redirect(`/productos/busqueda/${req.params.id}`))
+        .catch(err => console.log(err))
+    },
     borrar: (req, res) => {
         let primaryKey = req.params.id;
         db.Producto.findByPk(primaryKey)
